@@ -1,0 +1,45 @@
+.carousel-wrapper {
+    margin: 2rem 0;
+    cursor: grab;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 500;
+    height: 300px;
+    max-height: 100vh;
+}
+
+.slider-wrapper {
+    padding: 0.4rem;
+}
+
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    // fill: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow--left {
+    left: 10px;
+}
+
+.arrow--right {
+    left: auto;
+    right: 15px;
+}

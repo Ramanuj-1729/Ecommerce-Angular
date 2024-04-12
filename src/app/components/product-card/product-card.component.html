@@ -1,0 +1,28 @@
+<mat-card class="product-card-wrapper relative" (mouseenter)="showIcons = true" (mouseleave)="showIcons = false">
+    <a routerLink="/">
+        <img width="180" height="180" src="/assets/images/headphone.png" alt="Photo of headphone">
+    </a>
+    <span class="card-actions flex flex-column align-center justify-center absolute" *ngIf="showIcons">
+        <mat-icon class="action-btn">favorite_border</mat-icon>
+        <mat-icon class="action-btn">visibility</mat-icon>
+    </span>
+    <mat-card-content>
+        <div class="product-cat">Headphones</div>
+        <a routerLink="/">
+            <h4 class="product-name">Wireless Mondo</h4>
+        </a>
+        <div class="product-info flex align-center justify-space-between">
+            <span>
+                <mat-icon *ngFor="let _ of [].constructor(maxRating); let i = index"
+                    [class.filled]="i < rating">star</mat-icon>
+            </span>
+            <span class="product-price">₹ 266.00</span>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="card-btn" mat-button>
+            Add To Cart
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

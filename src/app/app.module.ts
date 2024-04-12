@@ -16,6 +16,14 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { RouterModule } from '@angular/router';
 import { HeaderCarouselComponent } from './components/header-carousel/header-carousel.component';
+import { OfferCardComponent } from './components/offer-card/offer-card.component';
+import { OfferBarComponent } from './components/offer-bar/offer-bar.component';
+import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
+import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductTabComponent } from './components/product-tab/product-tab.component';
+import { LatestProductsComponent } from './components/latest-products/latest-products.component';
+import { OnSaleProductsComponent } from './components/on-sale-products/on-sale-products.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,15 @@ import { HeaderCarouselComponent } from './components/header-carousel/header-car
     AboutComponent,
     ContactComponent,
     NotfoundComponent,
-    HeaderCarouselComponent
+    HeaderCarouselComponent,
+    OfferCardComponent,
+    OfferBarComponent,
+    FeaturedProductsComponent,
+    ProductCarouselComponent,
+    ProductCardComponent,
+    ProductTabComponent,
+    LatestProductsComponent,
+    OnSaleProductsComponent
   ],
   imports: [
     BrowserModule,

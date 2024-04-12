@@ -1,0 +1,10 @@
+.tab-group-container {
+    margin: 3rem auto;
+
+    ::ng-deep {
+        .mat-tab-label {
+            color: #000;
+            font-size: 1.1rem;
+        }
+    }
+}
