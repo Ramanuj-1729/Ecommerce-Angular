@@ -1,1 +1,26 @@
-<p>top-navbar works!</p>
+<nav class="top-navbar body-side-padding">
+    <div class="currency-wrapper">
+        <mat-form-field matRipple class="select" appearance="fill">
+            <mat-label>Choose Currency</mat-label>
+            <mat-select [(ngModel)]="selectedCurrency" name="currency">
+                <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+                    {{currency.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="menu">
+        <a routerLink="/wishlist">
+            <span class="menu-item menu-item-left">
+                <mat-icon class="icon">favorite_border</mat-icon>
+                <span>Wishlist</span>
+            </span>
+        </a>
+        <a routerLink="/my-account">
+            <span class="menu-item">
+                <mat-icon class="icon">person</mat-icon>
+                <span>My Account</span>
+            </span>
+        </a>
+    </div>
+</nav>

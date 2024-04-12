@@ -1,0 +1,59 @@
+.top-navbar {
+    background-color: #000000de;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .currency-wrapper {
+        ::ng-deep {
+
+            .mat-form-field-appearance-fill .mat-form-field-flex {
+                padding: .4em .3em 0 .3em;
+            }
+
+            .mat-form-field-infix {
+                padding: 0;
+            }
+
+            .mat-form-field-wrapper {
+                padding-bottom: 0px;
+            }
+
+            .mat-form-field-underline {
+                bottom: 0;
+                width: 0;
+            }
+
+            .mat-form-field-appearance-fill .mat-form-field-flex {
+                background-color: transparent;
+            }
+        }
+
+        .select {
+            width: 8.125rem;
+        }
+    }
+
+    .menu {
+        display: flex;
+        color: white;
+
+        a:hover {
+            opacity: 0.7;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                margin-right: 0.25rem;
+            }
+        }
+
+        .menu-item-left {
+            margin-right: 1.25rem;
+        }
+    }
+}

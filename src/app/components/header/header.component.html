@@ -1,0 +1,36 @@
+<header [ngClass]="{'sticky': isSticky}">
+    <div class="header-top body-side-padding flex align-center justify-space-between">
+        <a routerLink="/">
+            <img width="160" src="/assets/images/logo.png" alt="Electra logo">
+        </a>
+
+        <div class="flex">
+            <input class="search-input" type="text" placeholder="Type to search...">
+            <button class="search-btn" mat-flat-button>Search</button>
+        </div>
+
+        <div class="cart-btn-wrapper">
+            <span class="count-badge" matBadge="2" matBadgeOverlap="false"></span>
+            <button class="cart-btn" mat-button>
+                <mat-icon>shopping_cart</mat-icon>
+                <span class="cart-total">$0.00</span>
+            </button>
+        </div>
+    </div>
+    <nav class="header-menu flex items-center justify-center">
+        <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+        <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
+        <span>
+            <button class="menu-link" mat-button [matMenuTriggerFor]="belowMenu">
+                Categories
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu class="menu-cat" #belowMenu="matMenu" yPosition="below">
+                <button mat-menu-item>Men</button>
+                <button mat-menu-item>Women</button>
+            </mat-menu>
+        </span>
+        <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+        <a mat-button routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+</header>
