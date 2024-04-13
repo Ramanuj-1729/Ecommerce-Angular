@@ -1,0 +1,22 @@
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Search Product</mat-label>
+        <input type="text" matInput placeholder="Headphone">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field matRipple class="select" appearance="fill">
+        <mat-label>Sorting items</mat-label>
+        <mat-select [(ngModel)]="selectedValues" name="currency">
+            <mat-option *ngFor="let val of shortingValues" [value]="val.value">
+                {{val.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="grid-view-icons">
+    <mat-icon class="icon">view_list</mat-icon>
+    <mat-icon class="icon">view_module</mat-icon>
+    <mat-icon class="icon">view_comfy</mat-icon>
+</div>

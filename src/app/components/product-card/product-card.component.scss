@@ -56,6 +56,18 @@
         background-color: #fff;
         color: #e91e63;
     }
+
+    .card-mini-btn {
+        background-color: #e91e63;
+        color: #fff;
+        border: 2px solid #e91e63;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .card-mini-btn:hover {
+        background-color: #fff;
+        color: #e91e63;
+    }
 }
 
 ::ng-deep {

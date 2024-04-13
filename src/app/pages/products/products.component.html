@@ -1,1 +1,20 @@
-<p>products works!</p>
+<div class="products-wrapper">
+    <app-breadcrumb [currentPage]="'products'" [pageHeading]="'shop'"></app-breadcrumb>
+
+    <div class="body-side-padding products-body-wrapper flex">
+        <div class="products-left-body">
+            <div>
+                <app-filters></app-filters>
+            </div>
+            <div>popular products</div>
+        </div>
+        <div class="products-right-body">
+            <app-view-options
+                class="flex align-center justify-space-between product-view-options-wrapper"></app-view-options>
+            <div>
+                <app-product-list></app-product-list>
+                <app-paginator></app-paginator>
+            </div>
+        </div>
+    </div>
+</div>

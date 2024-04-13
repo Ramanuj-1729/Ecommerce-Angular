@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
 
   isSticky = false;
   navbarTopOffset = 0;
+  categories: string[] = ['Laptops', 'Headphones', 'Smartphones', 'Cameras', 'Watches'];
 
   @HostListener('window:scroll', [])
 

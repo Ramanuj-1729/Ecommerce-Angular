@@ -1,0 +1,21 @@
+::ng-deep {
+    .mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+        color: #000;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .mat-paginator {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    }
+
+    .mat-form-field-flex {
+        border-bottom: 1px solid #000000;
+    }
+
+    .mat-icon-button.mat-button-disabled.mat-button-disabled {
+        color: #6b6b6b;
+    }
+}

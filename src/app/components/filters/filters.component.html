@@ -1,0 +1,65 @@
+<mat-accordion multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Categories
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list #productCategories>
+            <mat-list-option>
+                Show All
+            </mat-list-option>
+            <mat-list-option *ngFor="let category of categories">
+                {{category}}
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Brands
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list #productBrands>
+            <mat-list-option>
+                Show All
+            </mat-list-option>
+            <mat-list-option *ngFor="let brand of brands">
+                {{brand}}
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Price
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <div class="label-container">
+                <label for="from-slider">From:</label>
+                <label for="from-slider" class="value-label">₹ {{fromValue}}</label>
+            </div>
+
+            <mat-slider [disabled]="fromDisabled" [invert]="fromInvert" [max]="fromMax" [min]="fromMin"
+                [step]="fromStep" [thumbLabel]="fromThumbLabel"
+                [tickInterval]="getFromSliderTickInterval()" [(ngModel)]="fromValue"
+                [vertical]="fromVertical">
+            </mat-slider>
+        </div>
+
+        <div>
+            <div class="label-container">
+                <label for="to-slider">To:</label>
+                <label for="to-slider" class="value-label">₹{{toValue}}</label>
+            </div>
+
+            <mat-slider [disabled]="toDisabled" [invert]="toInvert" [max]="toMax" [min]="toMin"
+                [step]="toStep" [thumbLabel]="toThumbLabel" [tickInterval]="getToSliderTickInterval()"
+                [(ngModel)]="toValue" [vertical]="toVertical">
+            </mat-slider>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

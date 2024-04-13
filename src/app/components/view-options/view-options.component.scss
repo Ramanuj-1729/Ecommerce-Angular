@@ -1,0 +1,41 @@
+::ng-deep {
+    .mat-form-field-label {
+        color: #808080;
+    }
+    
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+        border-bottom: 1px solid #808080;
+    }
+    
+    .mat-form-field-appearance-fill:hover .mat-form-field-flex {
+        border-bottom: 1px solid #808080;
+    }
+    
+    .mat-form-field-suffix .mat-icon {
+        opacity: 0.6;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .mat-select-value-text {
+        color: #636262;
+        font-weight: 500;
+    }
+
+    .mat-select-arrow {
+        color: #636262;
+    }
+}
+
+.grid-view-icons .icon {
+    opacity: 0.6;
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.grid-view-icons .icon:hover {
+    opacity: 1;
+    color: #636262;
+}

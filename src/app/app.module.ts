@@ -19,11 +19,19 @@ import { HeaderCarouselComponent } from './components/header-carousel/header-car
 import { OfferCardComponent } from './components/offer-card/offer-card.component';
 import { OfferBarComponent } from './components/offer-bar/offer-bar.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
-import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
+import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductTabComponent } from './components/product-tab/product-tab.component';
 import { LatestProductsComponent } from './components/latest-products/latest-products.component';
 import { OnSaleProductsComponent } from './components/on-sale-products/on-sale-products.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { CapitalCasePipe } from './pipes/capital-case.pipe';
+import { FiltersComponent } from './components/filters/filters.component';
+import { ViewOptionsComponent } from './components/view-options/view-options.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +48,19 @@ import { OnSaleProductsComponent } from './components/on-sale-products/on-sale-p
     OfferCardComponent,
     OfferBarComponent,
     FeaturedProductsComponent,
-    ProductCarouselComponent,
+    ProductsCarouselComponent,
     ProductCardComponent,
     ProductTabComponent,
     LatestProductsComponent,
-    OnSaleProductsComponent
+    OnSaleProductsComponent,
+    BreadcrumbComponent,
+    CapitalCasePipe,
+    FiltersComponent,
+    ViewOptionsComponent,
+    ProductListComponent,
+    PaginatorComponent,
+    ProductComponent,
+    ProductCarouselComponent
   ],
   imports: [
     BrowserModule,

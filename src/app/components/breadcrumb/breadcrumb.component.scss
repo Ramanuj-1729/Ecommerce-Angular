@@ -1,0 +1,33 @@
+.breadcrumb-bar-wrapper {
+    border-bottom: 1px solid #c7c7c7;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .page-heading {
+        font-size: 1.1rem;
+        font-weight: 500;
+        opacity: 0.8;
+    }
+
+    .breadcrumb-wrapper {
+        font-size: 1.1rem;
+        opacity: 0.8;
+    
+        a {
+            transition: all 0.3s ease-in-out;
+        }
+    
+        a:hover {
+            color: #e91e63;
+            opacity: 1;
+        }
+    
+        span {
+            margin-left: 0.3rem;
+        }
+    
+        .current-page {
+            font-weight: 500;
+        }
+    }
+}

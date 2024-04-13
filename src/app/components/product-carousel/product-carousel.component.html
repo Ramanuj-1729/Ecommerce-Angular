@@ -1,14 +1,11 @@
-<div class="carousel-wrapper relative">
-    <div class="keen-slider slider-wrapper" #sliderRef>
-        <app-product-card *ngFor="let n of productPerView" class="keen-slider__slide"></app-product-card>
+<div class="keen-slider main-slider" #sliderRef>
+    <div class="main-slider-wrapper">
+        <img *ngFor="let img of images" class="keen-slider__slide number-slide1" src="/assets/images/headphone.png"
+            alt="">
     </div>
-
-    <button [ngClass]="'arrow arrow--left '" (click)="slider.prev()" mat-mini-fab color="primary"
-        aria-label="Example icon button with a menu icon">
-        <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button *ngIf="slider" [ngClass]="'arrow arrow--right'" (click)="slider.next()" mat-mini-fab color="primary"
-        aria-label="Example icon button with a menu icon">
-        <mat-icon>chevron_right</mat-icon>
-    </button>
+</div>
+<div class="keen-slider thumbnail" #thumbnailRef>
+    <div class="thumbnail-slider-wrapper">
+        <img *ngFor="let img of images" class="keen-slider__slide number-slide1" src="/assets/images/headphone.png" alt="">
+    </div>
 </div>

@@ -26,8 +26,14 @@
                 <mat-icon>arrow_drop_down</mat-icon>
             </button>
             <mat-menu class="menu-cat" #belowMenu="matMenu" yPosition="below">
-                <button mat-menu-item>Men</button>
-                <button mat-menu-item>Women</button>
+                <mat-selection-list #productCategories>
+                    <mat-list-option>
+                        Show All
+                    </mat-list-option>
+                    <mat-list-option *ngFor="let category of categories">
+                        {{category}}
+                    </mat-list-option>
+                </mat-selection-list>
             </mat-menu>
         </span>
         <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>

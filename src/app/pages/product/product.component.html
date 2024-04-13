@@ -1,0 +1,40 @@
+<app-breadcrumb [currentPage]="'product'" [pageHeading]="'headphone'"></app-breadcrumb>
+<div class="body-side-padding product-wrapper">
+    <div class="flex">
+        <div class="flex">
+            <div class="slider-wrapper">
+                <app-product-carousel></app-product-carousel>
+            </div>
+        </div>
+        <div class="product-details-wrapper">
+            <div>
+                <h2>ONTEC E Headset</h2>
+                <div>
+                    <span>₹ 532.00</span>
+                    <span>50% Off</span>
+                </div>
+                <span>₹ 266.00</span>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book.</p>
+            </div>
+    
+            <div>
+                <span>Avalibility: <strong>In Stock</strong></span>
+                <div>
+                    <span>Quantity</span>
+                    <div>
+                        <button>-</button>
+                        <input type="text" value="1">
+                        <button>+</button>
+                    </div>
+                </div>
+                <div>
+                    <button mat-button>Add to Cart</button>
+                    <button mat-button>Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+</div>

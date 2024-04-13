@@ -1,0 +1,75 @@
+.label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.value-label {
+    font-weight: 500;
+}
+
+mat-slider {
+    width: 230px;
+}
+
+::ng-deep {
+
+    .mat-expansion-panel {
+        background-color: transparent !important;
+        color: #000 !important;
+        font-weight: 500;
+    }
+
+    .mat-accordion .mat-expansion-panel:first-of-type .mat-accordion .mat-expansion-panel:not(.mat-expanded),
+    .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+        margin-bottom: 1rem;
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-expansion-panel-header-description,
+    .mat-expansion-indicator::after {
+        color: #000;
+        font-weight: 500;
+    }
+
+    .mat-expansion-panel:not([class*=mat-elevation-z]) {
+        box-shadow: none;
+        border: 1px solid #c7c7c7;
+    }
+
+    .mat-list-base .mat-list-option {
+        color: #000;
+        opacity: 0.8;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mat-list-base .mat-list-option:hover {
+        background-color: #c7c7c7;
+    }
+
+    .mat-pseudo-checkbox {
+        color: #000;
+    }
+
+    .mat-pseudo-checkbox.mat-pseudo-checkbox-checked,
+    .mat-pseudo-checkbox.mat-pseudo-checkbox-indeterminate {
+        border-color: #000;
+        background-color: transparent;
+    }
+
+    .mat-slider-horizontal .mat-slider-track-background {
+        background-color: #c7c7c7 !important;
+
+    }
+
+    .mat-accent .mat-slider-track-fill,
+    .mat-accent .mat-slider-thumb,
+    .mat-accent .mat-slider-thumb-label {
+        background-color: #f44336 !important;
+    }
+
+    .mat-accent .mat-slider-thumb-label-text {
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 400;
+    }
+}
