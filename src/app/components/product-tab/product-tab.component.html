@@ -1,5 +1,11 @@
 <mat-tab-group class="tab-group-container">
-    <mat-tab label="Featured Products"><app-featured-products></app-featured-products></mat-tab>
-    <mat-tab label="Latest Products"><app-latest-products></app-latest-products></mat-tab>
-    <mat-tab label="On Sale Products"><app-on-sale-products></app-on-sale-products></mat-tab>
+    <mat-tab label="Featured Products">
+        <ng-template matTabContent><app-featured-products></app-featured-products></ng-template>
+    </mat-tab>
+    <mat-tab label="Latest Products">
+        <ng-template matTabContent><app-latest-products></app-latest-products></ng-template>
+    </mat-tab>
+    <mat-tab label="On Sale Products">
+        <ng-template matTabContent><app-on-sale-products></app-on-sale-products></ng-template>
+    </mat-tab>
 </mat-tab-group>

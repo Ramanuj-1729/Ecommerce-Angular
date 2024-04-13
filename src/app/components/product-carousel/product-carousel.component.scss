@@ -16,10 +16,17 @@
     max-height: 100vh;
 }
 
+.keen-slider {
+    padding-right: 0.5rem;
+}
+
 .slider-wrapper {
     padding: 0.4rem;
 }
 
+.keen-slider__slide {
+    overflow: visible !important;
+}
 
 .arrow {
     width: 30px;
@@ -28,7 +35,6 @@
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    // fill: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
