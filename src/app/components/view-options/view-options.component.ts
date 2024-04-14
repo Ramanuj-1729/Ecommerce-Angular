@@ -13,7 +13,7 @@ interface Shorting {
 export class ViewOptionsComponent implements OnInit {
 
   shortingValues: Shorting[] = [
-    {value: 'asc', viewValue: 'Acending Order'},
+    {value: 'asc', viewValue: 'Ascending Order'},
     {value: 'des', viewValue: 'Descending Order'},
     {value: 'A-Z', viewValue: 'Alphabetically, A-Z'},
     {value: 'Z-A', viewValue: 'Alphabetically, Z-A'},

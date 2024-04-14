@@ -8,7 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AppMaterialModule } from './app-material/app-material.module';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -32,6 +32,16 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ProductCarouselComponent } from './components/product-carousel/product-carousel.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { MyaccountComponent } from './pages/myaccount/myaccount.component';
+import { SignInFormComponent } from './components/sign-in-form/sign-in-form.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ProductViewDialogComponent } from './components/product-view-dialog/product-view-dialog.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +70,15 @@ import { ProductCarouselComponent } from './components/product-carousel/product-
     ProductListComponent,
     PaginatorComponent,
     ProductComponent,
-    ProductCarouselComponent
+    ProductCarouselComponent,
+    AuthComponent,
+    MyaccountComponent,
+    SignInFormComponent,
+    RegisterFormComponent,
+    ProductViewDialogComponent,
+    WishlistComponent,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +87,9 @@ import { ProductCarouselComponent } from './components/product-carousel/product-
     AppMaterialModule,
     FormsModule,
     RouterModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

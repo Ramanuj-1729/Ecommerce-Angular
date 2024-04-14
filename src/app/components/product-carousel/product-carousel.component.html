@@ -3,6 +3,7 @@
         <img *ngFor="let img of images" class="keen-slider__slide number-slide1" src="/assets/images/headphone.png"
             alt="">
     </div>
+    <mat-icon (click)="openDialog('/assets/images/headphone.png')" class="icon">zoom_in</mat-icon>
 </div>
 <div class="keen-slider thumbnail" #thumbnailRef>
     <div class="thumbnail-slider-wrapper">

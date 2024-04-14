@@ -1,0 +1,128 @@
+.table-wrapper {
+    margin: 2rem 0;
+}
+
+table {
+    width: 100%;
+}
+
+img {
+    width: 80px;
+    margin: 0 auto;
+}
+
+.wishlist-product-name {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.wishlist-product-price {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #f44336;
+}
+
+.wishlist-btn {
+    padding: 0.2rem 2rem;
+    border: 2px solid #f44336;
+    transition: all 0.3s ease-in-out;
+}
+
+.wishlist-btn:hover {
+    background-color: #fff;
+    color: #f44336;
+}
+
+.qty-wrapper {
+    color: #000;
+    opacity: 0.8;
+
+    input {
+        width: 50px;
+        // height: 50px;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 400;
+        border-left: 1px solid #c7c7c7;
+        border-right: 1px solid #c7c7c7;
+        border-top: none;
+        border-bottom: none;
+    }
+}
+
+.wishlist-product-total {
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: #c2185b !important;
+}
+
+.wishlist-remove-btn {
+    color: red !important;
+    cursor: pointer;
+}
+
+.wishlist-grand-total {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #c2185b;
+}
+
+::ng-deep {
+
+    .mat-elevation-z8 {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .mat-table {
+        background-color: #fff;
+
+        .mat-header-cell {
+            color: #000;
+            font-size: 1rem;
+            padding: 1rem 0;
+        }
+
+        .mat-cell,
+        .mat-footer-cell {
+            color: #000;
+            vertical-align: middle;
+        }
+
+        th.mat-header-cell,
+        td.mat-cell,
+        td.mat-footer-cell {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr.mat-header-row {
+            height: 0;
+        }
+
+        th.mat-header-cell:first-of-type,
+        td.mat-cell:first-of-type,
+        td.mat-footer-cell:first-of-type {
+            padding-left: 0;
+        }
+
+        th.mat-header-cell {
+            text-align: center;
+        }
+
+        tr.mat-row,
+        tr.mat-footer-row {
+            text-align: center;
+        }
+
+        tr.mat-row,
+        tr.mat-footer-row {
+            height: auto;
+        }
+    }
+
+    .mat-table th.mat-header-cell:first-of-type,
+    .mat-table td.mat-cell:first-of-type,
+    .mat-table td.mat-footer-cell:first-of-type {
+        padding: 2rem 0;
+    }
+}

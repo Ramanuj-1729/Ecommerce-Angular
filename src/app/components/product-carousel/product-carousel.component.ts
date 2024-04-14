@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 
 function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
@@ -21,7 +22,7 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
     }
 
     slider.on("created", () => {
-      // addActive(slider.track.details.rel)
+      addActive(slider.track.details.rel)
       addClickEvents()
       main.on("animationStarted", (main) => {
         removeActive()
@@ -33,6 +34,10 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
   }
 }
 
+export interface DialogData {
+  img: string;
+}
+
 @Component({
   selector: 'app-product-carousel',
   templateUrl: './product-carousel.component.html',
@@ -42,6 +47,16 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
   ]
 })
 export class ProductCarouselComponent {
+
+  constructor(public dialog: MatDialog) { }
+
+  openDialog(src: string) {
+    this.dialog.open(ProductImageDialog, {
+      data: {
+        img: src
+      },
+    });
+  }
 
   @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>
   @ViewChild("thumbnailRef") thumbnailRef!: ElementRef<HTMLElement>
@@ -72,4 +87,19 @@ export class ProductCarouselComponent {
     if (this.thumbnailSlider) this.thumbnailSlider.destroy()
   }
 
+}
+
+@Component({
+  selector: 'product-image-dialog',
+  templateUrl: 'product-image-dialog.html',
+  styles: [`
+    ::ng-deep .mat-dialog-container {
+      background-color: #fff;
+    }
+  `]
+})
+export class ProductImageDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  imgData = this.data.img;
 }

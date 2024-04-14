@@ -15,6 +15,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -34,7 +38,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatListModule,
     MatSliderModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatTableModule
   ],
 
   exports: [
@@ -52,7 +60,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatListModule,
     MatSliderModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatTableModule
   ]
 })
 export class AppMaterialModule { }

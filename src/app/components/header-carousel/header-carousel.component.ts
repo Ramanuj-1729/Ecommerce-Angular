@@ -14,10 +14,10 @@ export class HeaderCarouselComponent implements OnInit {
   @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>
 
   slidesStore: Array<any> = [
-    { id: 1, img: "/assets/images/img1.jpg", title: "Slide 1", alt: "Slide 1" },
-    { id: 2, img: "/assets/images/img2.jpg", title: "Slide 2", alt: "Slide 2" },
-    { id: 3, img: "/assets/images/img1.jpg", title: "Slide 3", alt: "Slide 3" },
-    { id: 4, img: "/assets/images/img3.jpg", title: "Slide 4", alt: "Slide 4" },
+    { id: 1, img: "/assets/images/camera-bg.png", title: "Sony Camera", alt: "Sony Camera", heading: "Our Best Products", subHeading: "Special Selection" },
+    { id: 2, img: "/assets/images/smartwatch-bg.png", title: "Smart Watch", alt: "Smart Watch", heading: "Biggest Sale", subHeading: "Don't miss it" },
+    { id: 3, img: "/assets/images/tv-bg.png", title: "Vigo Smart TV", alt: "Vigo Smart TV", heading: "Massive Sale", subHeading: "Only for today" },
+    { id: 4, img: "/assets/images/smartphone-bg.png", title: "Apple Smartphone", alt: "Apple Smartphone", heading: "Biggest Discount", subHeading: "Up to 70%" },
   ]
 
   currentSlide: number = 1

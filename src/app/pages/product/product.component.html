@@ -7,31 +7,35 @@
             </div>
         </div>
         <div class="product-details-wrapper">
-            <div>
-                <h2>ONTEC E Headset</h2>
-                <div>
-                    <span>₹ 532.00</span>
-                    <span>50% Off</span>
+            <div class="product-text-details">
+                <h2 class="product-name">ONTEC E Headset</h2>
+                <div class="flex align-center justify-between">
+                    <span class="product-old-price">₹ 532.00</span>
+                    <span class="product-off">50% Off</span>
                 </div>
-                <span>₹ 266.00</span>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                <h3 class="product-price">₹ 266.00</h3>
+                <p class="product-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book.</p>
             </div>
     
             <div>
-                <span>Avalibility: <strong>In Stock</strong></span>
-                <div>
-                    <span>Quantity</span>
+                <span class="product-avalibility">Avalibility : <b class="value">In Stock</b></span>
+                <div class="qty-wrapper flex justify-between flex-column">
+                    <span class="qty-text">Quantity</span>
                     <div>
-                        <button>-</button>
-                        <input type="text" value="1">
-                        <button>+</button>
+                        <button (click)="decreaseQuantity()" mat-button>
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <input type="text" value="{{quantity}}">
+                        <button (click)="increaseQuantity()" mat-button>
+                            <mat-icon>add</mat-icon>
+                        </button>
                     </div>
                 </div>
-                <div>
-                    <button mat-button>Add to Cart</button>
-                    <button mat-button>Buy Now</button>
+                <div class="product-action-btn-wrapper">
+                    <button class="product-action-btn" mat-flat-button color="primary">Add to Cart</button>
+                    <button class="product-action-btn" mat-flat-button color="primary">Buy Now</button>
                 </div>
             </div>
         </div>

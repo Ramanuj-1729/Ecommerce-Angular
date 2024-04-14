@@ -1,5 +1,6 @@
 .keen-slider {
     cursor: grab;
+    // position: relative;
 }
 
 [class^="number-slide"],
@@ -15,6 +16,37 @@
 }
 .keen-slider__slide{
     height: 80vh;
+    position: relative;
+}
+
+.slider-text {
+    position: absolute;
+    color: #fff;
+    top: 40%;
+    margin-left: 8rem;
+
+    .slider-text-heading {
+        font-size: 4rem;
+        font-weight: 600;
+    }
+
+    .slider-text-subheading {
+        font-size: 2rem;
+        font-weight: 300;
+        margin: 2rem 0 3rem 0;
+    }
+
+    .slider-text-btn {
+        padding: 0.4rem 4rem;
+        font-size: 1.3rem;
+        border: 2px solid #c2185b;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .slider-text-btn:hover {
+        background-color: #fff;
+        color: #c2185b;
+    }
 }
 
 .navigation-wrapper {

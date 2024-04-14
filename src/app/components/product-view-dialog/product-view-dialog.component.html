@@ -1,0 +1,40 @@
+<div style="padding: 0 2rem" class="flex align-center justify-center">
+    <img src="{{data.image}}" alt="">
+    <div class="product-details-wrapper">
+        <div class="product-text-details">
+            <h2 class="product-name">{{data.name}}</h2>
+            <div class="flex align-center justify-between">
+                <span class="product-old-price">₹ {{(data.price * data.off) / 100}}.00</span>
+                <span class="product-off">{{data.off}}% Off</span>
+            </div>
+            <h3 class="product-price">₹ {{data.price}}.00</h3>
+            <p class="product-description">{{data.description}}</p>
+        </div>
+
+        <div>
+            <span class="product-avalibility">Avalibility : <b class="value">{{data.avalibility}}</b></span>
+            <div class="flex align-center justify-space-between">
+                <div class="qty-wrapper flex justify-between flex-column">
+                    <span class="qty-text">Quantity</span>
+                    <div>
+                        <button (click)="decreaseQuantity()" mat-button>
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <input type="text" value="{{quantity}}">
+                        <button (click)="increaseQuantity()" mat-button>
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <div style="opacity: 0.7">
+                    <button mat-stroked-button>
+                        <mat-icon>shopping_cart</mat-icon>
+                    </button>
+                    <a routerLink="/product" mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>
+                        <mat-icon>visibility</mat-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

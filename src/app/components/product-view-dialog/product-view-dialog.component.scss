@@ -1,0 +1,105 @@
+.product-details-wrapper {
+    margin-left: 2rem;
+    color: #000;
+
+    .product-text-details {
+        border-bottom: 1px dashed #c7c7c7;
+        margin-bottom: 1rem;
+
+        .product-name {
+            font-size: 2.2rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .product-old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            font-weight: 500;
+            opacity: 0.7;
+            margin-right: 1rem;
+        }
+
+        .product-off {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ff0000;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            opacity: 0.7;
+            line-height: 1.5;
+            text-align: justify;
+        }
+    }
+
+    .product-avalibility {
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.8;
+
+        .value {
+            font-weight: 500;
+        }
+    }
+
+    .qty-wrapper {
+        color: #000;
+        opacity: 0.8;
+
+        .qty-text {
+            font-size: 1rem;
+            font-weight: 400;
+            // opacity: 0.8;
+            margin: 0.6rem 0 0.2rem 0;
+        }
+
+        input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 400;
+            border-left: 1px solid #c7c7c7;
+            border-right: 1px solid #c7c7c7;
+            border-top: none;
+            border-bottom: none;
+        }
+    }
+
+    .product-action-btn-wrapper {
+        margin-top: 1.5rem;
+
+        .product-action-btn {
+            padding: 0.2rem 2.5rem;
+            font-size: 1.05rem;
+            border: 2px solid #c2185b;
+            color: #fff;
+            background-color: #c2185b;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-action-btn:first-child {
+            margin-right: 1rem;
+        }
+
+        .product-action-btn:hover {
+            background-color: #fff;
+            color: #c2185b;
+        }
+    }
+}
+
+::ng-deep .mat-dialog-container {
+    background-color: #fff;
+}

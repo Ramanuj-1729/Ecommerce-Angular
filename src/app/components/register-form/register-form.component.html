@@ -1,0 +1,66 @@
+<form class="register-form-wrapper flex align-center justify-center flex-column">
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input type="text" matInput [formControl]="fullNameFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. abcd xyz">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="fullNameFormControl.hasError('required')">
+            Full Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. abc123">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="usernameFormControl.hasError('required')">
+            Username is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. pat@example.com">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input type="email" matInput [formControl]="phoneNumberFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. +91 0123456789">
+        <mat-error *ngIf="phoneNumberFormControl.hasError('required')">
+            Phone Number is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <div style="width: 100%" class="flex align-center">
+        <mat-form-field style="margin-right: 1rem" class="full-width" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input type="text" matInput [formControl]="ageFormControl" placeholder="Ex. 18">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Gender</mat-label>
+            <input type="text" matInput [formControl]="genderFormControl" placeholder="Ex. M or F">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+            placeholder="Enter Your Password">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <button type="submit" class="register-btn" mat-flat-button color="primary">Register</button>
+</form>

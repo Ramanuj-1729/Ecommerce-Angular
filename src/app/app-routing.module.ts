@@ -6,6 +6,11 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { ProductComponent } from './pages/product/product.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { MyaccountComponent } from './pages/myaccount/myaccount.component';
+import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -14,6 +19,11 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'account/auth', component: AuthComponent },
+  { path: 'account/:id', component: MyaccountComponent },
+  { path: 'wishlist', component: WishlistComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

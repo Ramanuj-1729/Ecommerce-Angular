@@ -4,7 +4,7 @@
     </a>
     <span class="card-actions flex flex-column align-center justify-center absolute" *ngIf="showIcons">
         <mat-icon class="action-btn">favorite_border</mat-icon>
-        <mat-icon class="action-btn">visibility</mat-icon>
+        <mat-icon (click)="openDialog()" class="action-btn">visibility</mat-icon>
     </span>
     <mat-card-content>
         <div class="product-cat">Headphones</div>

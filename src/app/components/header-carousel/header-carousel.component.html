@@ -1,7 +1,14 @@
 <div class="relative">
     <div class="navigation-wrapper">
         <div class="keen-slider keen-slider--vertical" #sliderRef>
-            <img *ngFor="let slide of slidesStore" class="keen-slider__slide" src="{{slide.img}}" title="{{slide.title}}" alt="{{slide.alt}}">
+            <div *ngFor="let slide of slidesStore" class="keen-slider__slide">
+                <div class="slider-text">
+                    <h1 class="slider-text-heading">{{slide.heading | uppercase}}</h1>
+                    <h2 class="slider-text-subheading">{{slide.subHeading}}</h2>
+                    <button mat-flat-button color="primary" class="slider-text-btn">Shop Now</button>
+                </div>
+                <img src="{{slide.img}}" title="{{slide.title}}" alt="{{slide.alt}}">
+            </div>
         </div>
         <!-- <svg [ngClass]="'arrow arrow--left '" (click)="slider.prev()" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24">
