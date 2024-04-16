@@ -1,0 +1,5 @@
+<mat-grid-list cols="4" [gutterSize]="'10px'">
+    <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows">
+        <app-product-collection-card class="collection-card-wrapper" [heading]="tile.heading" [offerText]="tile.offerText" [imgSrc]="tile.imgSrc" [flexDirection]="tile.direction" [width]="tile.width"></app-product-collection-card>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -42,6 +42,8 @@ import { ProductViewDialogComponent } from './components/product-view-dialog/pro
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ProductCollectionComponent } from './components/product-collection/product-collection.component';
+import { ProductCollectionCardComponent } from './components/product-collection-card/product-collection-card.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     ProductViewDialogComponent,
     WishlistComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductCollectionComponent,
+    ProductCollectionCardComponent
   ],
   imports: [
     BrowserModule,
