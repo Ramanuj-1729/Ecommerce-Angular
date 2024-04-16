@@ -85,4 +85,24 @@ header {
     .mat-menu-panel {
         background-color: #fff;
     }
+
+    .mat-list-base .mat-list-option {
+        color: #000;
+        opacity: 0.8;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .mat-list-base .mat-list-option:hover {
+        background-color: #c7c7c7;
+    }
+
+    .mat-pseudo-checkbox {
+        color: #000;
+    }
+
+    .mat-pseudo-checkbox.mat-pseudo-checkbox-checked,
+    .mat-pseudo-checkbox.mat-pseudo-checkbox-indeterminate {
+        border-color: #000;
+        background-color: transparent;
+    }
 }
