@@ -26,21 +26,21 @@
 }
 
 ::ng-deep {
-    .mat-form-field-label {
+    .register-form-wrapper .mat-form-field-label {
         color: #808080;
     }
 
-    .mat-form-field-appearance-fill .mat-form-field-flex {
+    .register-form-wrapper .mat-form-field-appearance-fill .mat-form-field-flex {
         border: 2px solid #808080;
         border-radius: 5px;
         transition: all 0.3s ease-in-out;
     }
 
-    .mat-form-field-appearance-fill:hover .mat-form-field-flex {
+    .register-form-wrapper .mat-form-field-appearance-fill:hover .mat-form-field-flex {
         border: 2px solid #e91e63;
     }
 
-    .mat-form-field-appearance-fill .mat-form-field-flex:focus-within {
+    .register-form-wrapper .mat-form-field-appearance-fill .mat-form-field-flex:focus-within {
         border: 2px solid #e91e63;
     }
 

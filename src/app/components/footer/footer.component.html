@@ -1,1 +1,72 @@
-<p>footer works!</p>
+<div class="footer-wrapper body-side-padding">
+    <div class="flex footer-top">
+        <div class="flex justify-evenly footer-items-wrapper">
+            <mat-list role="list">
+                <mat-list-item class="footer-list-heading" role="listitem">Products</mat-list-item>
+                <div class="flex flex-column">
+                    <a class="footer-list-item" mat-button routerLink="/products"><mat-list-item
+                            role="listitem">Laptop</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/products"><mat-list-item
+                            role="listitem">Headphone</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/products"><mat-list-item role="listitem">Smart
+                            Watch</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/products"><mat-list-item
+                            role="listitem">Tablet</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/products"><mat-list-item role="listitem">Smart
+                            TV</mat-list-item></a>
+                </div>
+            </mat-list>
+
+            <mat-list role="list">
+                <mat-list-item class="footer-list-heading" role="listitem">About</mat-list-item>
+                <div class="flex flex-column">
+                    <a class="footer-list-item" mat-button routerLink="/about"><mat-list-item role="listitem">About
+                            Us</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/contact"><mat-list-item role="listitem">Contact
+                            Us</mat-list-item></a>
+                </div>
+            </mat-list>
+
+            <mat-list role="list">
+                <mat-list-item class="footer-list-heading" role="listitem">Account</mat-list-item>
+                <div class="flex flex-column">
+                    <a class="footer-list-item" mat-button routerLink="/account/auth"><mat-list-item role="listitem">My
+                            Account</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/cart"><mat-list-item
+                            role="listitem">Cart</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/order-history"><mat-list-item
+                            role="listitem">Order History</mat-list-item></a>
+                    <a class="footer-list-item" mat-button routerLink="/wishlist"><mat-list-item
+                            role="listitem">Wishlist</mat-list-item></a>
+                </div>
+            </mat-list>
+        </div>
+        <div class="flex flex-column footer-newsletter">
+            <h1>Join our newsletter and get $20 off your first order</h1>
+            <div class="flex">
+                <input class="subscribe-input" type="email" placeholder="Email Address">
+                <button class="subscribe-btn" mat-flat-button>Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <div class="flex align-center justify-space-between">
+        <div>
+            <a href="/" class="social-btn" mat-button>
+                <i class="fa-brands fa-youtube social-icon"></i>
+            </a>
+
+            <a href="/" class="social-btn" mat-button>
+                <i class="fa-brands fa-instagram social-icon"></i>
+            </a>
+
+            <a href="/" class="social-btn" mat-button>
+                <i class="fa-brands fa-facebook social-icon"></i>
+            </a>
+
+            <a href="/" class="social-btn" mat-button>
+                <i class="fa-brands fa-x-twitter social-icon"></i>
+            </a>
+        </div>
+        <p class="copyright">ⓒ 2022 <a href="/">Electra</a>. All rights reserved</p>
+    </div>
+</div>

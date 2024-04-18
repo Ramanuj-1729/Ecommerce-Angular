@@ -11,10 +11,10 @@
 
         <div class="cart-btn-wrapper">
             <span class="count-badge" matBadge="2" matBadgeOverlap="false"></span>
-            <button class="cart-btn" mat-button>
+            <a routerLink="/cart" class="cart-btn" mat-button>
                 <mat-icon>shopping_cart</mat-icon>
                 <span class="cart-total">$0.00</span>
-            </button>
+            </a>
         </div>
     </div>
     <nav class="header-menu flex items-center justify-center">
@@ -36,7 +36,7 @@
                 </mat-selection-list>
             </mat-menu>
         </span>
-        <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
-        <a mat-button routerLink="/about" routerLinkActive="active">About</a>
+        <!-- <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+        <a mat-button routerLink="/about" routerLinkActive="active">About</a> -->
     </nav>
 </header>
