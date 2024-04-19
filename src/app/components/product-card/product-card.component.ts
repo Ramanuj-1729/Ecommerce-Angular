@@ -1,7 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProductViewDialogComponent } from '../product-view-dialog/product-view-dialog.component';
+import { CategoryService } from 'src/app/services/category.service';
 
 export interface DialogData {
   id: number;
@@ -19,7 +20,9 @@ export interface DialogData {
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  constructor(private router: Router, public dialog: MatDialog) { }
+  @Input() productData: any = {};
+  productCategory: string = '';
+  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(ProductViewDialogComponent, {
@@ -31,7 +34,6 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  rating: number = 4;
   maxRating: number = 5;
   showIcons: boolean = false;
   route = this.router.url;
@@ -48,6 +50,9 @@ export class ProductCardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.categoryService.getCategoryById(this.productData.categoryId).subscribe((response) => {
+      this.productCategory = response.name;
+    });
   }
 
 }

@@ -16,7 +16,13 @@
                 <span>Wishlist</span>
             </span>
         </a>
-        <a routerLink="/account/auth">
+        <a *ngIf="authService.isLoggedIn" routerLink="/account/:id">
+            <span class="menu-item">
+                <mat-icon class="icon">person</mat-icon>
+                <span>My Account</span>
+            </span>
+        </a>
+        <a *ngIf="!authService.isLoggedIn" routerLink="/account/auth">
             <span class="menu-item">
                 <mat-icon class="icon">person</mat-icon>
                 <span>My Account</span>

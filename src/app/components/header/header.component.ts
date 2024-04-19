@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   isSticky = false;
   navbarTopOffset = 0;
-  categories: string[] = ['Laptops', 'Headphones', 'Smartphones', 'Cameras', 'Watches'];
+  categories: any = [];
 
   @HostListener('window:scroll', [])
 
@@ -18,9 +19,16 @@ export class HeaderComponent implements OnInit {
     this.isSticky = offset >= this.navbarTopOffset;
   }
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.categoryService.getCategories().subscribe((data: any) => {
+      this.categories = data;
+    },
+    (error) => {
+      console.error('Error fetching categories: ', error);
+    });
+
     const navbarElement = document.querySelector('header');
     if (navbarElement) {
       this.navbarTopOffset = navbarElement.getBoundingClientRect().top + window.pageYOffset;

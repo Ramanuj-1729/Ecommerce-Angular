@@ -11,6 +11,7 @@ import { MyaccountComponent } from './pages/myaccount/myaccount.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'account/auth', component: AuthComponent },
-  { path: 'account/:id', component: MyaccountComponent },
+  { path: 'account/:id', component: MyaccountComponent, canActivate: [AuthGuard] },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },

@@ -1,22 +1,21 @@
 <mat-card class="product-card-wrapper relative" (mouseenter)="showIcons = true" (mouseleave)="showIcons = false">
     <a routerLink="/product">
-        <img width="180" height="180" src="/assets/images/headphone.png" alt="Photo of headphone">
+        <img width="180" height="180" src="{{productData.image}}" alt="Photo of headphone">
     </a>
     <span class="card-actions flex flex-column align-center justify-center absolute" *ngIf="showIcons">
         <mat-icon class="action-btn">favorite_border</mat-icon>
         <mat-icon (click)="openDialog()" class="action-btn">visibility</mat-icon>
     </span>
     <mat-card-content>
-        <div class="product-cat">Headphones</div>
+        <div class="product-cat">{{productCategory | capitalCase}}</div>
         <a routerLink="/product">
-            <h4 class="product-name">Wireless Mondo</h4>
+            <h4 class="product-name">{{productData.name | stringTruncate}}</h4>
         </a>
         <div class="product-info flex align-center justify-space-between">
             <span>
-                <mat-icon *ngFor="let _ of [].constructor(maxRating); let i = index"
-                    [class.filled]="i < rating">star</mat-icon>
+                <mat-icon *ngFor="let _ of [].constructor(maxRating); let i = index" [class.filled]="i < productData.rating">star</mat-icon>
             </span>
-            <span *ngIf="route === '/home'" class="product-price">₹ 266.00</span>
+            <span *ngIf="route === '/home'" class="product-price">₹ {{productData.price}}.00</span>
         </div>
     </mat-card-content>
     <mat-card-actions>

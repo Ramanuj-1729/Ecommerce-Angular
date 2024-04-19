@@ -31,7 +31,7 @@
                         Show All
                     </mat-list-option>
                     <mat-list-option *ngFor="let category of categories">
-                        {{category}}
+                        {{category.name | capitalCase}}
                     </mat-list-option>
                 </mat-selection-list>
             </mat-menu>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 interface Currency {
   value: string;
@@ -11,7 +12,7 @@ interface Currency {
   styleUrls: ['./top-navbar.component.scss']
 })
 export class TopNavbarComponent implements OnInit {
-  // selectedCurrency: string;
+  constructor(public authService: AuthService) { }
 
   currencies: Currency[] = [
     {value: 'inr', viewValue: 'INR'},
@@ -20,8 +21,6 @@ export class TopNavbarComponent implements OnInit {
   ];
 
   selectedCurrency = this.currencies[0].value;
-
-  constructor() { }
 
   ngOnInit(): void {
   }

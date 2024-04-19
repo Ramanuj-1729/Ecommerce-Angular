@@ -1,6 +1,6 @@
 <div class="carousel-wrapper relative">
     <div class="keen-slider slider-wrapper" #sliderRef>
-        <app-product-card *ngFor="let n of productPerView" class="keen-slider__slide"></app-product-card>
+        <app-product-card *ngFor="let product of products" class="keen-slider__slide" [productData]="product"></app-product-card>
     </div>
 
     <button [ngClass]="'arrow arrow--left '" (click)="slider.prev()" mat-mini-fab color="primary"

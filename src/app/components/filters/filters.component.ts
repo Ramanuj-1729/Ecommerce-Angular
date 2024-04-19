@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandService } from 'src/app/services/brand.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-filters',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
-  categories: string[] = ['Laptops', 'Headphones', 'Smartphones', 'Cameras', 'Watches'];
-  brands: string[] = ['Brands 1', 'Brands 2', 'Brands 3', 'Brands 4', 'Brands 5'];
+  categories: any = [];
+  brands: any = [];
 
   fromAutoTicks = false;
   fromDisabled = false;
@@ -46,9 +48,22 @@ export class FiltersComponent implements OnInit {
     return 0;
   }
 
-  constructor() { }
+  constructor(private categoryService: CategoryService, private brandService: BrandService) { }
 
   ngOnInit(): void {
+    this.categoryService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    },
+    (error) => {
+      console.error(error);
+    });
+
+    this.brandService.getBrands().subscribe((brands) => {
+      this.brands = brands;
+    },
+    (error) => {
+      console.error(error);
+    });
   }
 
 }

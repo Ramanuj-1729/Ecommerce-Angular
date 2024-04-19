@@ -44,6 +44,9 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ProductCollectionComponent } from './components/product-collection/product-collection.component';
 import { ProductCollectionCardComponent } from './components/product-collection-card/product-collection-card.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { StringTruncatePipe } from './pipes/string-truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -82,7 +85,8 @@ import { ProductCollectionCardComponent } from './components/product-collection-
     CartComponent,
     CheckoutComponent,
     ProductCollectionComponent,
-    ProductCollectionCardComponent
+    ProductCollectionCardComponent,
+    StringTruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -93,9 +97,16 @@ import { ProductCollectionCardComponent } from './components/product-collection-
     RouterModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

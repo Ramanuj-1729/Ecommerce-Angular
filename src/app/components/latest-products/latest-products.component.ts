@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-latest-products',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LatestProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
+
+  newProducts: any = [];
 
   ngOnInit(): void {
+    this.productService.getNewProducts().subscribe((response) => {
+      this.newProducts = response;
+    },
+      (error) => {
+        console.error(error);
+      });
   }
 
 }

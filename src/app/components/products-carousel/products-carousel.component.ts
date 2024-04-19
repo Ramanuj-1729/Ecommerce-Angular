@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import KeenSlider from 'keen-slider';
 
 @Component({
@@ -12,9 +12,9 @@ import KeenSlider from 'keen-slider';
 export class ProductsCarouselComponent implements OnInit, AfterViewInit {
 
   @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>
+  @Input() products: any[] = [];
 
   slider: any;
-  productPerView: number[] = [1, 2];
   currentSlide: number = 1;
 
   ngAfterViewInit() {
@@ -25,7 +25,7 @@ export class ProductsCarouselComponent implements OnInit, AfterViewInit {
           this.currentSlide = s.track.details.rel
         },
         slides: {
-          perView: this.productPerView.length >= 4 ? 4 : this.productPerView.length,
+          perView: this.products.length >= 4 ? 4 : this.products.length,
           spacing: 10,
         },
       })

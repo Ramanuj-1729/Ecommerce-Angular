@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -16,6 +17,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
+  registerFormValue: any = {};
 
   fullNameFormControl = new FormControl('', [Validators.required]);
   usernameFormControl = new FormControl('', [Validators.required]);
@@ -27,7 +29,16 @@ export class RegisterFormComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  @Output() changeTabEvent = new EventEmitter<number>();
+
+  onRegisterSubmit() {
+    this.authService.register(this.registerFormValue).subscribe((response) => {
+      this.changeTabEvent.emit(0);
+      this.registerFormValue = {};
+    });
+  }
 
   ngOnInit(): void {
   }
