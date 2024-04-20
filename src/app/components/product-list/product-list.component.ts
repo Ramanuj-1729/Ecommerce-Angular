@@ -11,12 +11,17 @@ export class ProductListComponent implements OnChanges {
   @Input() indexOfFirstItem: number = 0;
   @Input() indexOfLastItem: number = 6;
 
+  @Input() productsListColumn: number = 4;
+
   slicedProducts: any;
 
   constructor() { }
 
+  getColumnValue(): string {
+    return `repeat(${this.productsListColumn}, 1fr)`;
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.slicedProducts = this.products.slice(this.indexOfFirstItem, this.indexOfLastItem);
   }
-
 }

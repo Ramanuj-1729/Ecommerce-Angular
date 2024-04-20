@@ -1,3 +1,3 @@
-<div class="product-list-wrapper">
+<div [style.grid-template-columns]="getColumnValue()" class="product-list-wrapper">
     <app-product-card *ngFor="let product of slicedProducts" [productData]="product"></app-product-card>
 </div>

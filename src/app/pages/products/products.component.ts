@@ -23,6 +23,24 @@ export class ProductsComponent implements OnInit {
     this.indexOfLastItem = indexOfLastItem;
   }
 
+  productsListColumn: number = 4;
+
+  handleProductsListColumnEvent(value: number): void {
+    switch (value) {
+      case 1:
+        this.productsListColumn = 1;
+        break;
+      case 3:
+        this.productsListColumn = 3;
+        break;
+      case 4:
+        this.productsListColumn = 4;
+        break;
+      default:
+        break;
+    }
+  }
+
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe((products) => {

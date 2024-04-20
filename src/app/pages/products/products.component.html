@@ -6,9 +6,9 @@
             <app-filters></app-filters>
         </div>
         <div class="products-right-body">
-            <app-view-options class="flex align-center justify-space-between product-view-options-wrapper"></app-view-options>
+            <app-view-options (productsListColumnOneEvent)="handleProductsListColumnEvent($event)" (productsListColumnThreeEvent)="handleProductsListColumnEvent($event)" (productsListColumnFourEvent)="handleProductsListColumnEvent($event)" class="flex align-center justify-space-between product-view-options-wrapper"></app-view-options>
             <div>
-                <app-product-list [indexOfFirstItem]="indexOfFirstItem" [indexOfLastItem]="indexOfLastItem" [products]="allProducts"></app-product-list>
+                <app-product-list [productsListColumn]="productsListColumn" [indexOfFirstItem]="indexOfFirstItem" [indexOfLastItem]="indexOfLastItem" [products]="allProducts"></app-product-list>
                 <app-paginator (indexOfFirstItemEvent)="receiveIndexOfFirstItem($event)" (indexOfLastItemEvent)="receiveIndexOfLastItem($event)" [length]="allProducts.length"></app-paginator>
             </div>
         </div>
