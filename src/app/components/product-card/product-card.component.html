@@ -1,5 +1,5 @@
 <mat-card class="product-card-wrapper relative" (mouseenter)="showIcons = true" (mouseleave)="showIcons = false">
-    <a routerLink="/product">
+    <a routerLink="/product/{{productData.id}}">
         <img width="180" height="180" src="{{productData.image}}" alt="Photo of headphone">
     </a>
     <span class="card-actions flex flex-column align-center justify-center absolute" *ngIf="showIcons">
@@ -8,7 +8,7 @@
     </span>
     <mat-card-content>
         <div class="product-cat">{{productCategory | capitalCase}}</div>
-        <a routerLink="/product">
+        <a routerLink="/product/{{productData.id}}">
             <h4 class="product-name">{{productData.name | stringTruncate}}</h4>
         </a>
         <div class="product-info flex align-center justify-space-between">

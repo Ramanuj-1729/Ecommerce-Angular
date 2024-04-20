@@ -3,24 +3,22 @@
     <div class="flex">
         <div class="flex">
             <div class="slider-wrapper">
-                <app-product-carousel></app-product-carousel>
+                <app-product-carousel [productImages]="product.images"></app-product-carousel>
             </div>
         </div>
         <div class="product-details-wrapper">
             <div class="product-text-details">
-                <h2 class="product-name">ONTEC E Headset</h2>
+                <h2 class="product-name">{{product.name}}</h2>
                 <div class="flex align-center justify-between">
-                    <span class="product-old-price">₹ 532.00</span>
-                    <span class="product-off">50% Off</span>
+                    <span class="product-old-price">₹ {{(product.price * 100) / product.discount | number: '.0-0'}}.00</span>
+                    <span class="product-off">{{product.discount}}% Off</span>
                 </div>
-                <h3 class="product-price">₹ 266.00</h3>
-                <p class="product-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.</p>
+                <h3 class="product-price">₹ {{product.price}}.00</h3>
+                <p class="product-description">{{product.description}}</p>
             </div>
     
             <div>
-                <span class="product-avalibility">Avalibility : <b class="value">In Stock</b></span>
+                <span class="product-avalibility">Avalibility : <b class="value">{{product.quantity > 0 ? 'In Stock' : 'Out of Stock'}}</b></span>
                 <div class="qty-wrapper flex justify-between flex-column">
                     <span class="qty-text">Quantity</span>
                     <div>

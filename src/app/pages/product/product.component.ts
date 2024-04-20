@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +11,10 @@ export class ProductComponent implements OnInit {
   quantity: number = 1;
   // quantityChange = new EventEmitter<number>();
 
-  constructor() { }
+  productId: string = '';
+  product: any = {};
+
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   increaseQuantity() {
     this.quantity++;
@@ -28,6 +33,13 @@ export class ProductComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.productId = params['id'];
+    });
+
+    this.productService.getProductById(this.productId).subscribe((product) => {
+      this.product = product;
+    });
   }
 
 }

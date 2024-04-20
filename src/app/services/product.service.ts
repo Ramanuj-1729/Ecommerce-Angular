@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
   public products_url = environment.SERVER_URL + "/Product";
   public products_flag_url = environment.SERVER_URL + "/Product/Flag";
+  public product_url = environment.SERVER_URL + "/Product";
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +27,9 @@ export class ProductService {
 
   getOnSaleProducts(): Observable<any> {
     return this.http.get(this.products_flag_url + "?flag=isOnSale");
+  }
+
+  getProductById(id: string): Observable<any> {
+    return this.http.get(this.product_url + "/" + id);
   }
 }

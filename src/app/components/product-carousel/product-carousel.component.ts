@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
 
@@ -46,7 +46,8 @@ export interface DialogData {
     './product-carousel.component.scss'
   ]
 })
-export class ProductCarouselComponent {
+export class ProductCarouselComponent implements OnInit{
+  @Input() productImages: any = [];
 
   constructor(public dialog: MatDialog) { }
 
@@ -63,9 +64,12 @@ export class ProductCarouselComponent {
 
   slider: any;
   thumbnailSlider: any;
-  images = [1, 2, 3, 4, 5, 6].map((i) => `https://picsum.photos/200/300?random=${i}`)
+  images = [];
 
-  ngAfterViewInit() {
+  ngOnInit() {
+    // this.images = this.productImages.map((img: any) => img.imageUrl);
+    // console.log(this.images);
+    
     setTimeout(() => {
       this.slider = new KeenSlider(this.sliderRef.nativeElement)
       this.thumbnailSlider = new KeenSlider(
@@ -79,7 +83,7 @@ export class ProductCarouselComponent {
         },
         [ThumbnailPlugin(this.slider)]
       )
-    });
+    }, 100);
   }
 
   ngOnDestroy() {

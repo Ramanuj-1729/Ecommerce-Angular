@@ -24,7 +24,18 @@ export class ProductCardComponent implements OnInit {
   productCategory: string = '';
   constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService) { }
 
+  product: DialogData = {
+    id: 0,
+    name: '',
+    price: 0,
+    off: 0,
+    description: '',
+    image: '',
+    avalibility: ''
+  };
+
   openDialog() {
+
     const dialogRef = this.dialog.open(ProductViewDialogComponent, {
       data: this.product
     });
@@ -38,21 +49,20 @@ export class ProductCardComponent implements OnInit {
   showIcons: boolean = false;
   route = this.router.url;
 
-  product: DialogData = {
-    id: 1,
-    name: 'ONTEC E Headset',
-    price: 266,
-    off: 50,
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-    image: '/assets/images/headphone.png',
-    avalibility: 'In Stock',
-  }
-
-
   ngOnInit(): void {
     this.categoryService.getCategoryById(this.productData.categoryId).subscribe((response) => {
       this.productCategory = response.name;
     });
+
+    this.product = {
+      id: this.productData.id,
+      name: this.productData.name,
+      price: this.productData.price,
+      off: this.productData.discount,
+      description: this.productData.description,
+      image: this.productData.image,
+      avalibility: this.productData.quantity > 0 ? 'In Stock' : 'Out of Stock',
+    }
   }
 
 }

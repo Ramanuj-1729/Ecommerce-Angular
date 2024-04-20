@@ -1,12 +1,14 @@
 <div class="keen-slider main-slider" #sliderRef>
     <div class="main-slider-wrapper">
-        <img *ngFor="let img of images" class="keen-slider__slide number-slide1" src="/assets/images/headphone.png"
-            alt="">
+        <div *ngFor="let img of productImages" class="keen-slider__slide number-slide1">
+            <img [src]="img.imageUrl" alt="">
+            <mat-icon (click)="openDialog(img.imageUrl)" class="icon">zoom_in</mat-icon>
+        </div>
     </div>
-    <mat-icon (click)="openDialog('/assets/images/headphone.png')" class="icon">zoom_in</mat-icon>
+
 </div>
 <div class="keen-slider thumbnail" #thumbnailRef>
     <div class="thumbnail-slider-wrapper">
-        <img *ngFor="let img of images" class="keen-slider__slide number-slide1" src="/assets/images/headphone.png" alt="">
+        <img *ngFor="let img of productImages" class="keen-slider__slide number-slide1" [src]="img.imageUrl" alt="">
     </div>
 </div>

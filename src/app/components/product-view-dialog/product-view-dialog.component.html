@@ -4,7 +4,7 @@
         <div class="product-text-details">
             <h2 class="product-name">{{data.name}}</h2>
             <div class="flex align-center justify-between">
-                <span class="product-old-price">₹ {{(data.price * data.off) / 100}}.00</span>
+                <span class="product-old-price">₹ {{(data.price * 100) / data.off}}.00</span>
                 <span class="product-off">{{data.off}}% Off</span>
             </div>
             <h3 class="product-price">₹ {{data.price}}.00</h3>
@@ -30,7 +30,7 @@
                     <button mat-stroked-button>
                         <mat-icon>shopping_cart</mat-icon>
                     </button>
-                    <a routerLink="/product" mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>
+                    <a routerLink="/product/{{data.id}}" mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>
                         <mat-icon>visibility</mat-icon>
                     </a>
                 </div>
