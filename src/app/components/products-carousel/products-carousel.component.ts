@@ -9,7 +9,7 @@ import KeenSlider from 'keen-slider';
     './products-carousel.component.scss',
   ]
 })
-export class ProductsCarouselComponent implements OnInit, AfterViewInit {
+export class ProductsCarouselComponent implements OnInit {
 
   @ViewChild("sliderRef") sliderRef!: ElementRef<HTMLElement>
   @Input() products: any[] = [];
@@ -17,7 +17,7 @@ export class ProductsCarouselComponent implements OnInit, AfterViewInit {
   slider: any;
   currentSlide: number = 1;
 
-  ngAfterViewInit() {
+  ngOnInit() {
     setTimeout(() => {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
         loop: true,
@@ -29,7 +29,7 @@ export class ProductsCarouselComponent implements OnInit, AfterViewInit {
           spacing: 10,
         },
       })
-    });
+    }, 100);
   }
 
   ngOnDestroy() {
@@ -37,8 +37,4 @@ export class ProductsCarouselComponent implements OnInit, AfterViewInit {
   }
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -12,6 +12,17 @@ export class ProductsComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
 
+  indexOfFirstItem: number = 0;
+  indexOfLastItem: number = 6;
+
+  receiveIndexOfFirstItem(indexOfFirstItem: number) {
+    this.indexOfFirstItem = indexOfFirstItem;
+  }
+
+  receiveIndexOfLastItem(indexOfLastItem: number) {
+    this.indexOfLastItem = indexOfLastItem;
+  }
+
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe((products) => {
