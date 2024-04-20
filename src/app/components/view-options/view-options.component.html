@@ -8,7 +8,7 @@
 <div>
     <mat-form-field matRipple class="select" appearance="fill">
         <mat-label>Sorting items</mat-label>
-        <mat-select [(ngModel)]="selectedValues" name="currency">
+        <mat-select [(ngModel)]="selectedValues" (selectionChange)="handleSelectedType($event)" name="currency">
             <mat-option *ngFor="let val of shortingValues" [value]="val.value">
                 {{val.viewValue}}
             </mat-option>

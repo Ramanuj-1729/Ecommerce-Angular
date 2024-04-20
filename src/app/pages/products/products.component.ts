@@ -41,6 +41,12 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  sortingType: string = 'low-high';
+
+  handleSortingTypeEvent(value: string): void {
+    this.sortingType = value;
+  }
+
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe((products) => {
