@@ -47,6 +47,24 @@ export class ProductsComponent implements OnInit {
     this.sortingType = value;
   }
 
+  categoryIdArray: number[] = [];
+
+  handleSelectedCategories(event: number[]): void {
+    this.categoryIdArray = event;
+  }
+
+  brandIdArray: number[] = [];
+
+  handleSelectedBrands(event: number[]): void {
+    this.brandIdArray = event;
+  }
+
+  priceRangeArray: number[] = [];
+
+  handlePriceRange(event: number[]): void {
+    this.priceRangeArray = event;
+  }
+
   ngOnInit(): void {
 
     this.productService.getProducts().subscribe((products) => {

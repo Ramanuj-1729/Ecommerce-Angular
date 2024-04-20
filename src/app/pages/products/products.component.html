@@ -3,12 +3,12 @@
 
     <div class="body-side-padding products-body-wrapper flex">
         <div class="products-left-body">
-            <app-filters></app-filters>
+            <app-filters (priceRange)="handlePriceRange($event)" (selectedCategories)="handleSelectedCategories($event)" (selectedBrands)="handleSelectedBrands($event)"></app-filters>
         </div>
         <div class="products-right-body">
             <app-view-options (sortingTypeEvent)="handleSortingTypeEvent($event)" (productsListColumnOneEvent)="handleProductsListColumnEvent($event)" (productsListColumnThreeEvent)="handleProductsListColumnEvent($event)" (productsListColumnFourEvent)="handleProductsListColumnEvent($event)" class="flex align-center justify-space-between product-view-options-wrapper"></app-view-options>
             <div>
-                <app-product-list [sortingType]="sortingType" [productsListColumn]="productsListColumn" [indexOfFirstItem]="indexOfFirstItem" [indexOfLastItem]="indexOfLastItem" [products]="allProducts"></app-product-list>
+                <app-product-list [priceFilter]="priceRangeArray" [brandFilter]="brandIdArray" [categoryFilter]="categoryIdArray" [sortingType]="sortingType" [productsListColumn]="productsListColumn" [indexOfFirstItem]="indexOfFirstItem" [indexOfLastItem]="indexOfLastItem" [products]="allProducts"></app-product-list>
                 <app-paginator (indexOfFirstItemEvent)="receiveIndexOfFirstItem($event)" (indexOfLastItemEvent)="receiveIndexOfLastItem($event)" [length]="allProducts.length"></app-paginator>
             </div>
         </div>

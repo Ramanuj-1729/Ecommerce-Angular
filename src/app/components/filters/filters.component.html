@@ -5,11 +5,11 @@
                 Categories
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-selection-list #productCategories>
+        <mat-selection-list (selectionChange)="handleSelectedCategories($event)" #productCategories>
             <mat-list-option>
                 Show All
             </mat-list-option>
-            <mat-list-option *ngFor="let category of categories">
+            <mat-list-option *ngFor="let category of categories" [value]="category">
                 {{category.name | capitalCase}}
             </mat-list-option>
         </mat-selection-list>
@@ -21,11 +21,11 @@
                 Brands
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-selection-list #productBrands>
+        <mat-selection-list (selectionChange)="handleSelectedBrands($event)" #productBrands>
             <mat-list-option>
                 Show All
             </mat-list-option>
-            <mat-list-option *ngFor="let brand of brands">
+            <mat-list-option *ngFor="let brand of brands" [value]="brand">
                 {{brand.name | capitalCase}}
             </mat-list-option>
         </mat-selection-list>
@@ -61,5 +61,7 @@
                 [(ngModel)]="toValue" [vertical]="toVertical">
             </mat-slider>
         </div>
+
+        <button (click)="handlePriceRange()" style="float: right" mat-flat-button>Filter</button>
     </mat-expansion-panel>
 </mat-accordion>
