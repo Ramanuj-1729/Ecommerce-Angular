@@ -47,6 +47,7 @@ import { ProductCollectionCardComponent } from './components/product-collection-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StringTruncatePipe } from './pipes/string-truncate.pipe';
+import { TokenService } from './services/token.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,8 @@ import { StringTruncatePipe } from './pipes/string-truncate.pipe';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    TokenService
   ],
   bootstrap: [AppComponent]
 })

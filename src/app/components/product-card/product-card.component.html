@@ -3,7 +3,7 @@
         <img width="180" height="180" src="{{productData.image}}" alt="Photo of headphone">
     </a>
     <span class="card-actions flex flex-column align-center justify-center absolute" *ngIf="showIcons">
-        <mat-icon class="action-btn">favorite_border</mat-icon>
+        <mat-icon (click)="addToWishlist()" class="action-btn">favorite_border</mat-icon>
         <mat-icon (click)="openDialog()" class="action-btn">visibility</mat-icon>
     </span>
     <mat-card-content>

@@ -3,6 +3,7 @@ import {  FormControl, FormGroupDirective, NgForm, Validators } from '@angular/f
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -26,12 +27,15 @@ export class SignInFormComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,  private router: Router) { }
 
   onSiginSubmit() {
     this.authService.login(this.signInFormValue).subscribe((response) => {
       if(response){
         this.authService.isLoggedIn = true;
+
+        localStorage.setItem('token', response.token);
+
         this.signInFormValue = {};
         this.router.navigateByUrl('/home');
       }

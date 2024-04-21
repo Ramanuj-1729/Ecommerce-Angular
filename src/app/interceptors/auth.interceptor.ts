@@ -7,21 +7,20 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { TokenService } from '../services/token.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private tokenService: TokenService) { }
-
+  constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     const modifiedRequest = request.clone({
-      // withCredentials: true,  // Include credentials in the request
+      withCredentials: true,  // Include credentials in the request
 
       setHeaders: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.tokenService.getToken() || ''
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
       }
     });
 

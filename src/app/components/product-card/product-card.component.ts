@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProductViewDialogComponent } from '../product-view-dialog/product-view-dialog.component';
 import { CategoryService } from 'src/app/services/category.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
 
 export interface DialogData {
   id: number;
@@ -22,7 +23,7 @@ export interface DialogData {
 export class ProductCardComponent implements OnInit {
   @Input() productData: any = {};
   productCategory: string = '';
-  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService) { }
+  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService, private wishlistService: WishlistService) { }
 
   product: DialogData = {
     id: 0,
@@ -63,6 +64,12 @@ export class ProductCardComponent implements OnInit {
       image: this.productData.image,
       avalibility: this.productData.quantity > 0 ? 'In Stock' : 'Out of Stock',
     }
+  }
+
+  addToWishlist() {
+    this.wishlistService.postProductToWishlist(6, this.product.id).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }
