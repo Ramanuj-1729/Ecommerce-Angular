@@ -1,4 +1,4 @@
-import { AfterViewChecked, ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
@@ -6,16 +6,12 @@ import { WishlistService } from 'src/app/services/wishlist.service';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss']
 })
-export class WishlistComponent implements OnInit, AfterViewChecked {
+export class WishlistComponent implements OnInit {
 
   displayedColumns: string[] = ['product', 'name', 'price', 'action'];
   dataSource: any = [];
 
-  constructor(private wishlistService: WishlistService, private cdRef: ChangeDetectorRef) { }
-
-  ngAfterViewChecked(): void {
-    this.cdRef.detectChanges();
-}
+  constructor(private wishlistService: WishlistService, private zone: NgZone) { }
 
   ngOnInit() {
     this.wishlistService.getWishlist(6).subscribe((res) => {
@@ -26,15 +22,13 @@ export class WishlistComponent implements OnInit, AfterViewChecked {
         price: item.product.price,
         action: 'delete'
       }));
-      this.cdRef.detectChanges();
     });
   }
 
   deleteProductFromWishlist(productId: number) {
-    this.wishlistService.deleteProductFromWishlist(productId).subscribe((res) => {
-      this.cdRef.detectChanges();
-    });
+    this.zone.run(() => {
+      this.dataSource = this.dataSource.filter((item: any) => item.id !== productId);
+    },
+      this.wishlistService.deleteProductFromWishlist(productId).subscribe());
   }
-
-
 }
