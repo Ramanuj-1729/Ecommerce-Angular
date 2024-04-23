@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,28 +10,27 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   quantity: number = 1;
-  // quantityChange = new EventEmitter<number>();
 
   productId: string = '';
   product: any = {};
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
   increaseQuantity() {
     this.quantity++;
-    // this.emitQuantityChange();
   }
 
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
-      // this.emitQuantityChange();
     }
   }
 
-  // emitQuantityChange() {
-  //   this.quantityChange.emit(this.quantity);
-  // }
+  addToCart(productId: number, quantity: number) {
+    this.cartService.postProductToCartWithQuantity(productId, quantity).subscribe((res) => {
+      this.cartService.cartItemCount.next(this.cartService.cartItemCount.value + 1);
+    });
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -40,6 +40,7 @@ export class ProductComponent implements OnInit {
     this.productService.getProductById(this.productId).subscribe((product) => {
       this.product = product;
     });
+
   }
 
 }

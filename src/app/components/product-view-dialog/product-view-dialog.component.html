@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div style="opacity: 0.7">
-                    <button mat-stroked-button>
+                    <button (click)="addToCart(data.id, quantity)" mat-stroked-button>
                         <mat-icon>shopping_cart</mat-icon>
                     </button>
                     <a routerLink="/product/{{data.id}}" mat-stroked-button [mat-dialog-close]="true" cdkFocusInitial>

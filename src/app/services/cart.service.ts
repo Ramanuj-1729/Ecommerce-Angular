@@ -17,6 +17,10 @@ export class CartService {
     return this.http.post(this.cart_url + `/add-to-cart?productId=${productId}`, {});
   }
 
+  postProductToCartWithQuantity(productId: number, quantity: number): Observable<any> {
+    return this.http.post(this.cart_url + `/add-to-cart-quantity?productId=${productId}&quantity=${quantity}`, {});
+  }
+
   getCartItems(): Observable<any> {
     return this.http.get(this.cart_url + '/GetCartItems');
   }

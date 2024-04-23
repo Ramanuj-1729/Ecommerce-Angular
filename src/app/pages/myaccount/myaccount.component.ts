@@ -9,6 +9,8 @@ export class MyaccountComponent implements OnInit {
 
   constructor() { }
 
+  selectedTab = 'orders';
+
   ngOnInit(): void {
   }
 

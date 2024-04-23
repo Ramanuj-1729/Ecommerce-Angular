@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CartService } from 'src/app/services/cart.service';
 
 export interface DialogData {
   id: number;
@@ -18,30 +19,25 @@ export interface DialogData {
 })
 export class ProductViewDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
-
-  // imgData = this.data.img;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private cartService: CartService) { }
 
   quantity: number = 1;
-  // quantityChange = new EventEmitter<number>();
-
-  // constructor() { }
 
   increaseQuantity() {
     this.quantity++;
-    // this.emitQuantityChange();
   }
 
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
-      // this.emitQuantityChange();
     }
   }
 
-  // emitQuantityChange() {
-  //   this.quantityChange.emit(this.quantity);
-  // }
+  addToCart(productId: number, quantity: number) {
+    this.cartService.postProductToCartWithQuantity(productId, quantity).subscribe((res) => {
+      this.cartService.cartItemCount.next(this.cartService.cartItemCount.value + 1);
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,33 @@
-<p>myaccount works!</p>
+<app-breadcrumb [currentPage]="'My Account'" [pageHeading]="'My Account'"></app-breadcrumb>
+
+<div class="body-side-padding profile-wrapper">
+    <div class="profile-top-wrapper flex align-center">
+        <img src="/assets/images/profile.png" alt="">
+        <p>Welcome, Ramanuj Asati 👋</p>
+    </div>
+
+    <div class="profile-bottom-wrapper flex">
+        <div class="profile-sidebar">
+            <ul>
+                <li [class.selected]="selectedTab === 'dashboard'">
+                    <mat-icon [class.selectedIcon]="selectedTab === 'dashboard'" class="icon">dashboard</mat-icon>
+                    <span [class.selectedText]="selectedTab === 'dashboard'">Dashboard</span>
+                </li>
+                <li [class.selected]="selectedTab === 'orders'">
+                    <mat-icon [class.selectedIcon]="selectedTab === 'orders'" class="icon">local_shipping</mat-icon>
+                    <span [class.selectedText]="selectedTab === 'orders'">Orders</span>
+                </li>
+                <li [class.selected]="selectedTab === 'address'">
+                    <mat-icon [class.selectedIcon]="selectedTab === 'address'" class="icon">place</mat-icon>
+                    <span [class.selectedText]="selectedTab === 'address'">Addresses</span>
+                </li>
+                <li [class.selected]="selectedTab === 'logout'">
+                    <mat-icon [class.selectedIcon]="selectedTab === 'logout'" class="icon">logout</mat-icon>
+                    <span [class.selectedText]="selectedTab === 'logout'">Logout</span>
+                </li>
+            </ul>
+        </div>
+    
+        <div></div>
+    </div>
+</div>
