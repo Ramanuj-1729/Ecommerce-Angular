@@ -1,3 +1,18 @@
+.not-cart-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 18vh;
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 500;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+    }
+}
+
 .table-wrapper {
     margin: 2rem 0;
 }

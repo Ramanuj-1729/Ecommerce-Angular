@@ -1,48 +1,77 @@
-import { Component } from '@angular/core';
-
-export interface CartElement {
-  product: string;
-  name: string;
-  price: number;
-  quantity: number;
-  total: number;
-  action: string;
-}
-
-const ELEMENT_DATA: CartElement[] = [
-  { product: '/assets/images/headphone.png', name: 'Solo Headset', price: 235, quantity: 1, total: 235, action: 'delete' },
-  { product: '/assets/images/headphone.png', name: 'Solo Headset', price: 235, quantity: 1, total: 235, action: 'delete' },
-];
+import { Component, NgZone, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
 
-  quantity: number = 1;
-  // quantityChange = new EventEmitter<number>();
+  constructor(private cartService: CartService, private zone: NgZone) { }
 
-  constructor() { }
+  displayedColumns: string[] = ['product', 'name', 'price', 'quantity', 'total', 'action'];
+  dataSource: any = [];
+  grandTotal: number = 0;
 
-  increaseQuantity() {
-    this.quantity++;
-    // this.emitQuantityChange();
+  findQuantity(productId: number) {
+    return this.dataSource.find((item: any) => item.productId === productId).quantity;
   }
 
-  decreaseQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
-      // this.emitQuantityChange();
+  calculateGrandTotal() {
+    this.grandTotal = this.dataSource.reduce((acc: any, item: any) => acc + item.total, 0);
+  }
+
+  increaseQuantity(productId: number) {
+    let itemQuantity = this.findQuantity(productId);
+
+    if (itemQuantity < 10) {
+      this.cartService.incrementQuantity(productId).subscribe();
+      this.dataSource.find((item: any) => item.productId === productId).quantity++;
+      this.dataSource.find((item: any) => item.productId === productId).total += this.dataSource.find((item: any) => item.productId === productId).price;
+      this.calculateGrandTotal();
+    } else {
+      alert('You can only add up to 10 items');
     }
   }
 
-  // emitQuantityChange() {
-  //   this.quantityChange.emit(this.quantity);
-  // }
+  decreaseQuantity(productId: number) {
+    let itemQuantity = this.findQuantity(productId);
 
-  displayedColumns: string[] = ['product', 'name', 'price', 'quantity', 'total', 'action'];
-  dataSource = ELEMENT_DATA;
+    if (itemQuantity > 1) {
+      this.cartService.decrementQuantity(productId).subscribe();
+      this.dataSource.find((item: any) => item.productId === productId).quantity--;
+      this.dataSource.find((item: any) => item.productId === productId).total -= this.dataSource.find((item: any) => item.productId === productId).price;
+      this.calculateGrandTotal();
+    } else {
+      alert('You have to add at least 1 item');
+    }
+  }
 
+  ngOnInit() {
+    this.cartService.getCartItems().subscribe((res) => {
+
+      this.dataSource = res.map((item: any) => ({
+        productId: item.id,
+        product: item.image,
+        name: item.productName,
+        price: item.price,
+        quantity: item.quantity,
+        total: item.totalPrice,
+        action: 'delete'
+      }));
+      this.cartService.cartItemCount.next(this.dataSource.length);
+      this.calculateGrandTotal();
+    });
+  }
+
+  deleteProductFromCart(productId: number) {
+    this.zone.run(() => {
+      this.dataSource = this.dataSource.filter((item: any) => item.productId !== productId);
+    },
+      this.cartService.removeCartItem(productId).subscribe());
+    this.cartService.cartItemCount.next(this.cartService.cartItemCount.value - 1);
+    this.calculateGrandTotal();
+  }
 }

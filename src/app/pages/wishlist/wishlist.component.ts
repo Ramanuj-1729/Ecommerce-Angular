@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 

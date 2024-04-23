@@ -19,7 +19,7 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button *ngIf="route === '/home'" class="card-btn" mat-button>
+        <button *ngIf="route === '/home'" (click)="addToCart(productData.id)" class="card-btn" mat-button>
             Add To Cart
             <mat-icon>shopping_cart</mat-icon>
         </button>
@@ -27,7 +27,7 @@
         <div class="flex align-center justify-space-between" *ngIf="route === '/products'">
             <span class="product-price">₹ {{productData.price}}.00</span>
 
-            <button mat-mini-fab class="card-mini-btn">
+            <button (click)="addToCart(productData.id)" mat-mini-fab class="card-mini-btn">
                 <mat-icon>shopping_cart</mat-icon>
             </button>
         </div>

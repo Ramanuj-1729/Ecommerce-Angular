@@ -1,7 +1,7 @@
 <app-breadcrumb [currentPage]="'Wishlist'" [pageHeading]="'Wishlist'"></app-breadcrumb>
 
 <div class="body-side-padding table-wrapper">
-    <div *ngIf="dataSource.length <= 0" class="not-item-container">
+    <div *ngIf="dataSource.length <= 0" class="not-wishlist-item-container">
         <p>You have no items in your wishlist</p>
         <a routerLink="/products" class="wishlist-btn" mat-flat-button color="warn">Continue Shoping</a>
     </div>

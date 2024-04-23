@@ -1,7 +1,12 @@
 <app-breadcrumb [currentPage]="'cart'" [pageHeading]="'cart'"></app-breadcrumb>
 
 <div class="body-side-padding table-wrapper">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div *ngIf="dataSource.length <= 0" class="not-cart-item-container">
+        <p>You have no items in your cart</p>
+        <a routerLink="/products" class="cart-btn" mat-flat-button color="warn">Continue Shoping</a>
+    </div>
+
+    <table *ngIf="dataSource.length > 0" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="product">
             <th mat-header-cell *matHeaderCellDef> Product </th>
             <td mat-cell *matCellDef="let element"> <img [src]="element.product" /> </td>
@@ -27,11 +32,11 @@
             <td mat-cell *matCellDef="let element">
                 <div class="qty-wrapper flex justify-between flex-column">
                     <div>
-                        <button (click)="decreaseQuantity()" mat-button>
+                        <button (click)="decreaseQuantity(element.productId)" mat-button>
                             <mat-icon>remove</mat-icon>
                         </button>
-                        <input type="text" value="{{quantity}}">
-                        <button (click)="increaseQuantity()" mat-button>
+                        <input type="text" value="{{element.quantity}}">
+                        <button (click)="increaseQuantity(element.productId)" mat-button>
                             <mat-icon>add</mat-icon>
                         </button>
                     </div>
@@ -44,13 +49,13 @@
             <th mat-header-cell *matHeaderCellDef>Total</th>
             <td class="cart-product-total" mat-cell *matCellDef="let element"> {{element.total}}.00</td>
             <td class="cart-grand-total" mat-footer-cell *matFooterCellDef>
-                Grand Total: <b>₹ 410.00</b>
+                Grand Total: <b>₹ {{grandTotal}}.00</b>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>Action</th>
-            <td mat-cell *matCellDef="let element"><mat-icon class="cart-remove-btn">{{element.action}}</mat-icon></td>
+            <td mat-cell *matCellDef="let element"><mat-icon (click)="deleteProductFromCart(element.productId)" class="cart-remove-btn">{{element.action}}</mat-icon></td>
             <td mat-footer-cell *matFooterCellDef>
                 <button class="cart-btn" mat-flat-button color="warn">Checkout</button>
             </td>

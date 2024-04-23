@@ -5,6 +5,7 @@ import { ProductViewDialogComponent } from '../product-view-dialog/product-view-
 import { CategoryService } from 'src/app/services/category.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { TokenService } from 'src/app/services/token.service';
+import { CartService } from 'src/app/services/cart.service';
 
 export interface DialogData {
   id: number;
@@ -24,7 +25,7 @@ export interface DialogData {
 export class ProductCardComponent implements OnInit {
   @Input() productData: any = {};
   productCategory: string = '';
-  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService, private wishlistService: WishlistService, private tokenService: TokenService) { }
+  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService, private wishlistService: WishlistService, private tokenService: TokenService, private cartService: CartService) { }
 
   product: DialogData = {
     id: 0,
@@ -76,9 +77,12 @@ export class ProductCardComponent implements OnInit {
     } else {
       alert('Please login to add product to wishlist');
     }
-    // this.wishlistService.postProductToWishlist(6, this.product.id).subscribe((response) => {
-    //   console.log(response);
-    // });
+  }
+
+  addToCart(productId: number) {
+    this.cartService.postProductToCart(productId).subscribe((response) => {
+      this.cartService.cartItemCount.next(this.cartService.cartItemCount.value + 1);
+    });
   }
 
 }
