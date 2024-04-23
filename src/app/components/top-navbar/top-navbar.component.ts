@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 interface Currency {
   value: string;
   viewValue: string;
-}
-
-interface UserId {
-  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'?: string;
 }
 
 @Component({
@@ -17,9 +14,9 @@ interface UserId {
   styleUrls: ['./top-navbar.component.scss']
 })
 export class TopNavbarComponent implements OnInit {
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private tokenService: TokenService) { }
 
-  public tokenId: any = 0;
+  public tokenId: string = '';
 
   currencies: Currency[] = [
     { value: 'inr', viewValue: 'INR' },
@@ -29,15 +26,8 @@ export class TopNavbarComponent implements OnInit {
 
   selectedCurrency = this.currencies[0].value;
 
-
-
   ngOnInit(): void {
-    let token = localStorage.getItem('token');
-
-    if (token) {
-      const decodedToken = jwtDecode(token) as UserId;
-      this.tokenId = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
-    }
+    this.tokenId = this.tokenService.getTokenData()?.id || '';
   }
 
 }

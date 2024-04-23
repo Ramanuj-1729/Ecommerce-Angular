@@ -1,9 +1,10 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProductViewDialogComponent } from '../product-view-dialog/product-view-dialog.component';
 import { CategoryService } from 'src/app/services/category.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
+import { TokenService } from 'src/app/services/token.service';
 
 export interface DialogData {
   id: number;
@@ -23,7 +24,7 @@ export interface DialogData {
 export class ProductCardComponent implements OnInit {
   @Input() productData: any = {};
   productCategory: string = '';
-  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService, private wishlistService: WishlistService) { }
+  constructor(private router: Router, public dialog: MatDialog, private categoryService: CategoryService, private wishlistService: WishlistService, private tokenService: TokenService) { }
 
   product: DialogData = {
     id: 0,
@@ -67,9 +68,17 @@ export class ProductCardComponent implements OnInit {
   }
 
   addToWishlist() {
-    this.wishlistService.postProductToWishlist(6, this.product.id).subscribe((response) => {
-      console.log(response);
-    });
+    let userId = this.tokenService.getTokenData()?.id;
+    if (userId) {
+      this.wishlistService.postProductToWishlist(parseInt(userId), this.product.id).subscribe((response) => {
+        // console.log(response);
+      });
+    } else {
+      alert('Please login to add product to wishlist');
+    }
+    // this.wishlistService.postProductToWishlist(6, this.product.id).subscribe((response) => {
+    //   console.log(response);
+    // });
   }
 
 }

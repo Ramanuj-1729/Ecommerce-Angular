@@ -17,7 +17,7 @@ export class WishlistService {
     return this.http.post(this.wishlist_url + `/Wishlist/add-wishlist?userId=${userId}&productId=${productId}`, {});
   }
 
-  getWishlist(userId: number): Observable<any> {
+  getWishlist(userId: string): Observable<any> {
     return this.http.get(this.wishlist_url + `/Wishlist/get-wishlist?userId=${userId}`);
   }
 
