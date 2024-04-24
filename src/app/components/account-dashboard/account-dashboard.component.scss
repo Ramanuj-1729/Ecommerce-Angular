@@ -1,0 +1,36 @@
+.dahsboard-wrapper {
+    padding: 1.5rem 2rem;
+
+    h1 {
+        font-size: 1.58rem;
+        font-weight: 500;
+    }
+
+    .dahsboard-data-wrapper {
+
+        .dashboard-title-wrapper {
+            margin-right: 3rem;
+            
+            .data-title {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            .data-title:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .dashboard-value-wrapper{
+            
+            .data-value {
+                font-size: 1.1rem;
+                font-weight: 400;
+            }
+
+            .data-value:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}

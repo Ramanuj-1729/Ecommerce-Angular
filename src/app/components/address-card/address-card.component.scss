@@ -1,0 +1,41 @@
+.address-card {
+    padding: 1.2rem;
+    // background-color: #fff;
+
+    .address-user-name {
+        margin-bottom: 1rem;
+    }
+
+    .card-action-area {
+        border-top: 1px solid #c3c3c3;
+
+        .default-text {
+            float: right;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #666;
+            margin-top: 0.4rem;
+        }
+    }
+}
+
+.card-bg-color {
+    background-color: #fff;
+}
+
+::ng-deep {
+    .mat-card {
+        background-color: #e4f1ec;
+        color: #000;
+        border: 1px solid #c3c3c3;
+    }
+
+    .mat-card:not([class*=mat-elevation-z]) {
+        box-shadow: none;
+    }
+
+    .mat-flat-button {
+        line-height: 1.8rem;
+        margin-right: 1rem;
+    }
+}

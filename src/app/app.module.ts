@@ -48,6 +48,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { StringTruncatePipe } from './pipes/string-truncate.pipe';
 import { TokenService } from './services/token.service';
+import { AccountDashboardComponent } from './components/account-dashboard/account-dashboard.component';
+import { AccountOrdersComponent } from './components/account-orders/account-orders.component';
+import { AccountAddressComponent } from './components/account-address/account-address.component';
+import { AddressCardComponent } from './components/address-card/address-card.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +91,11 @@ import { TokenService } from './services/token.service';
     CheckoutComponent,
     ProductCollectionComponent,
     ProductCollectionCardComponent,
-    StringTruncatePipe
+    StringTruncatePipe,
+    AccountDashboardComponent,
+    AccountOrdersComponent,
+    AccountAddressComponent,
+    AddressCardComponent
   ],
   imports: [
     BrowserModule,

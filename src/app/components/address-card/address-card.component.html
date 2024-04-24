@@ -1,0 +1,19 @@
+<div class="address-card-wrapper">
+    <mat-card [class.card-bg-color]="default==false" class="address-card">
+        <mat-card-title class="address-user-name">Ramanuj Asati</mat-card-title>
+        <mat-card-content style="font-size: 1rem; line-height: 1.4;">
+            <p>Transport Nagar, Chhatarpur</p>
+            <p>471001, Madhya Pradesh</p>
+            <p>India</p>
+            <p>+91 9179272636</p>
+        </mat-card-content>
+        <mat-card-actions class="card-action-area flex align-center">
+            <span>
+                <button mat-flat-button>Edit</button>
+                <button mat-flat-button>Remove</button>
+            </span>
+
+            <span *ngIf="default" class="default-text">Default</span>
+        </mat-card-actions>
+    </mat-card>
+</div>

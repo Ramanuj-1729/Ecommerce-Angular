@@ -27,6 +27,7 @@
         border-bottom: 2px solid #e0e0e0;
 
         .profile-sidebar {
+            margin-right: 2rem;
 
             li {
                 display: flex;
@@ -69,6 +70,11 @@
             li:hover span {
                 font-weight: 500;
             }
+        }
+
+        .profile-data {
+            background-color: #f9f9f9;
+            width: 100%;
         }
     }
 }

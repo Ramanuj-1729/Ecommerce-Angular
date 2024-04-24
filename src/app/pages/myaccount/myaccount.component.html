@@ -9,25 +9,35 @@
     <div class="profile-bottom-wrapper flex">
         <div class="profile-sidebar">
             <ul>
-                <li [class.selected]="selectedTab === 'dashboard'">
+                <li (click)="changeTab('dashboard')" [class.selected]="selectedTab === 'dashboard'">
                     <mat-icon [class.selectedIcon]="selectedTab === 'dashboard'" class="icon">dashboard</mat-icon>
                     <span [class.selectedText]="selectedTab === 'dashboard'">Dashboard</span>
                 </li>
-                <li [class.selected]="selectedTab === 'orders'">
+                <li (click)="changeTab('orders')" [class.selected]="selectedTab === 'orders'">
                     <mat-icon [class.selectedIcon]="selectedTab === 'orders'" class="icon">local_shipping</mat-icon>
                     <span [class.selectedText]="selectedTab === 'orders'">Orders</span>
                 </li>
-                <li [class.selected]="selectedTab === 'address'">
+                <li (click)="changeTab('address')" [class.selected]="selectedTab === 'address'">
                     <mat-icon [class.selectedIcon]="selectedTab === 'address'" class="icon">place</mat-icon>
                     <span [class.selectedText]="selectedTab === 'address'">Addresses</span>
                 </li>
-                <li [class.selected]="selectedTab === 'logout'">
+                <li (click)="logout()" [class.selected]="selectedTab === 'logout'">
                     <mat-icon [class.selectedIcon]="selectedTab === 'logout'" class="icon">logout</mat-icon>
                     <span [class.selectedText]="selectedTab === 'logout'">Logout</span>
                 </li>
             </ul>
         </div>
     
-        <div></div>
+        <div class="profile-data">
+            <div *ngIf="selectedTab=='dashboard'">
+                <app-account-dashboard></app-account-dashboard>
+            </div>
+            <div *ngIf="selectedTab=='orders'">
+                <app-account-orders></app-account-orders>
+            </div>
+            <div *ngIf="selectedTab=='address'">
+                <app-account-address></app-account-address>
+            </div>
+        </div>
     </div>
 </div>

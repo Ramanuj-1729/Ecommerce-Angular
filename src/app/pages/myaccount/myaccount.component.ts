@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-myaccount',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyaccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  selectedTab = 'orders';
+  selectedTab = 'dashboard';
+
+  changeTab(tab: string) {
+    this.selectedTab = tab;
+  }
+
+  logout() {
+    this.changeTab('logout');
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/home');
+  }
 
   ngOnInit(): void {
   }
