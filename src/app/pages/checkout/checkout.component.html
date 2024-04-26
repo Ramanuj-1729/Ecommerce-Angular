@@ -1,1 +1,55 @@
-<p>checkout works!</p>
+<app-breadcrumb [currentPage]="'checkout'" [pageHeading]="'checkout'"></app-breadcrumb>
+
+<div class="body-side-padding stepper-wrapper flex">
+    <mat-stepper orientation="vertical" (selectionChange)="selectionChange($event)" linear #stepper>
+        <mat-step>
+            <form>
+                <ng-template (click)="cartRedirect()" matStepLabel>Cart</ng-template>
+            </form>
+        </mat-step>
+        <mat-step [completed]="isAddressCompleted">
+            <form>
+                <ng-template matStepLabel>Shipping</ng-template>
+                <div>
+                    <div>
+                        <button (click)="openDialog()">Select Shipping Address</button>
+                        <button (click)="openAddAddressDialog()">Add New Address</button>
+                    </div>
+                    <div>
+                        <h4>Shipping Address</h4>
+                        <h3>{{selectedAddress.fullname}}</h3>
+                        <span>{{selectedAddress.addressType}}</span>
+                        <p>{{selectedAddress.houseNumber}}, {{selectedAddress.street}}, {{selectedAddress.city}}</p>
+                        <p>{{selectedAddress.state}} - {{selectedAddress.zip}}</p>
+                        <p>{{selectedAddress.country}}</p>
+                        <p>Mobile: {{selectedAddress.phoneNumber}}</p>
+                    </div>
+                </div>
+                <div>
+                    <button matStepperPrevious>Back</button>
+                    <button matStepperNext (click)="confirmAddress()">Confirm Shipping Address</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [completed]="isOrderSummaryCompleted">
+            <ng-template matStepLabel>Order Summary</ng-template>
+            <p>order summary</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Payment</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+
+    <div>
+        hi
+    </div>
+</div>

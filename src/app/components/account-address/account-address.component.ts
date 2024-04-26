@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AddressService } from 'src/app/services/address.service';
+import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-account-address',
@@ -7,13 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountAddressComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addressService: AddressService, public dialog: MatDialog) { }
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+  addressList: any = [];
+
+  openDialog() {
+
+    const dialogRef = this.dialog.open(AddAddressDialogComponent, {
+      data: null
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
+    });
+  }
+
+  handleAddressRemove(addressId: any) {
+    this.addressService.deleteAddress(addressId).subscribe((res) => {
+      console.log(res);
+    });
+    this.addressList = this.addressList.filter((address: any) => address.id !== addressId);
+  }
 
   ngOnInit(): void {
+    this.addressService.getAddressesByUserId(1).subscribe((res) => {
+      this.addressList = res;
+    });
   }
 
 }

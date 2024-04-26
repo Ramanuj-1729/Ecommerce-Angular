@@ -1,11 +1,10 @@
 <div class="address-wrapper">
     <div class="flex align-center justify-space-between">
         <h1>Your Shipping Addresses</h1>
-        <button mat-flat-button color="warn">Add New Address</button>
+        <button (click)="openDialog()" mat-flat-button color="warn">Add New Address</button>
     </div>
 
     <div class="cards-wrapper">
-        <app-address-card [default]="true"></app-address-card>
-        <app-address-card [default]="false"></app-address-card>
+        <app-address-card *ngFor="let address of addressList" [address]="address" [default]="address.isDefault" (handleAddressRemoveEvent)="handleAddressRemove($event)"></app-address-card>
     </div>
 </div>

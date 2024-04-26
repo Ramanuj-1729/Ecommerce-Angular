@@ -1,0 +1,29 @@
+.stepper-wrapper {
+    margin: 3rem 0;
+}
+
+
+::ng-deep {
+    .stepper-wrapper {
+
+        .mat-stepper-vertical {
+            background-color: transparent;
+        }
+        .mat-step-icon {
+            background-color: #888888;
+        }
+        .mat-step-icon-selected, .mat-step-icon-state-edit {
+            background-color: #c2185b;
+        }
+        .mat-step-label {
+            color: #6c6c6c;
+            font-weight: 500;
+        }
+        .mat-step-label.mat-step-label-active {
+            color: #000;
+        }
+        .mat-stepper-vertical-line::before {
+            border-left-color: #888888;
+        }
+    }
+}

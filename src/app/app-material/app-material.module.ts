@@ -15,10 +15,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatTableModule} from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -42,7 +44,9 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatChipsModule
   ],
 
   exports: [
@@ -64,7 +68,9 @@ import {MatTableModule} from '@angular/material/table';
     MatDialogModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatStepperModule,
+    MatChipsModule
   ]
 })
 export class AppMaterialModule { }

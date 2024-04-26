@@ -1,0 +1,66 @@
+<h2>Edit Address</h2>
+
+<form>
+    <mat-form-field style="width: 100%" name="form" appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input type="text" name="fullName" placeholder="Ex. abcd xyz" matInput>
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%" appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input type="text" name="phoneNumber" matInput placeholder="Ex. +91 0123456789">
+    </mat-form-field>
+
+    <div style="width: 100%" class="flex align-center">
+        <mat-form-field style="margin-right: 1rem" appearance="fill">
+            <mat-label>Pin Code</mat-label>
+            <input type="text" name="zip" matInput placeholder="Ex. 471001">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>House No.</mat-label>
+            <input type="text" name="houseNumber" matInput placeholder="Ex. 142">
+        </mat-form-field>
+    </div>
+
+    <div style="width: 100%" class="flex align-center">
+        <mat-form-field style="margin-right: 1rem" appearance="fill">
+            <mat-label>Street</mat-label>
+            <input type="text" name="street" matInput placeholder="Ex. Trasnport Nagar">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input type="text" name="city" matInput placeholder="Ex. Chhatarpur">
+        </mat-form-field>
+    </div>
+
+    <div style="width: 100%" class="flex align-center">
+        <mat-form-field style="margin-right: 1rem" appearance="fill">
+            <mat-label>State</mat-label>
+            <input type="text" name="state" matInput placeholder="Ex. Madhya Pradesh">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input type="text" name="country" matInput placeholder="Ex. India">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-radio-group style="width: 100%" [(ngModel)]="seletedAddressType">
+            <mat-label style="margin-right: 1rem;">Address Type:</mat-label>
+            <mat-radio-button style="margin-right: 1rem; margin-bottom: 1rem;" *ngFor="let address of addressTypes"
+                [value]="address">
+                {{address}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <mat-checkbox>Make This My Default Address</mat-checkbox>
+
+    <div style="margin-top: 1.5rem;" class="flex justify-center">
+        <button mat-flat-button mat-dialog-close>Close</button>
+        <button mat-flat-button color="primary">Save Address</button>
+    </div>
+</form>

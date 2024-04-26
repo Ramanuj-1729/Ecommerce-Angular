@@ -1,0 +1,19 @@
+Click on checkout:
+	1. redirect to checkout page
+		1. create stepper
+			cart -> shipping -> payment
+		2. get shipping address
+			select address or create new addres
+			if new address display this addres in checkout page and select that address
+			also display order summary in right side
+			proceed to payment click
+		3. redirect to stripe payment page
+			show cart products
+			fill billing info
+			click on pay
+			if payment success then redirect to success page
+			else redirect to payment fail page
+		4. if payment success
+			then create order
+			empty cart
+		5. Return to Store

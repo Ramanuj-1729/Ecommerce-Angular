@@ -52,6 +52,9 @@ import { AccountDashboardComponent } from './components/account-dashboard/accoun
 import { AccountOrdersComponent } from './components/account-orders/account-orders.component';
 import { AccountAddressComponent } from './components/account-address/account-address.component';
 import { AddressCardComponent } from './components/address-card/address-card.component';
+import { ShippingAddressDialogComponent } from './components/shipping-address-dialog/shipping-address-dialog.component';
+import { AddAddressDialogComponent } from './components/add-address-dialog/add-address-dialog.component';
+import { EditAddressDialogComponent } from './components/edit-address-dialog/edit-address-dialog.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +98,10 @@ import { AddressCardComponent } from './components/address-card/address-card.com
     AccountDashboardComponent,
     AccountOrdersComponent,
     AccountAddressComponent,
-    AddressCardComponent
+    AddressCardComponent,
+    ShippingAddressDialogComponent,
+    AddAddressDialogComponent,
+    EditAddressDialogComponent
   ],
   imports: [
     BrowserModule,
