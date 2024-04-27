@@ -30,13 +30,13 @@
     
         <div class="profile-data">
             <div *ngIf="selectedTab=='dashboard'">
-                <app-account-dashboard></app-account-dashboard>
+                <app-account-dashboard [userId]="userId"></app-account-dashboard>
             </div>
             <div *ngIf="selectedTab=='orders'">
-                <app-account-orders></app-account-orders>
+                <app-account-orders [userId]="userId"></app-account-orders>
             </div>
             <div *ngIf="selectedTab=='address'">
-                <app-account-address></app-account-address>
+                <app-account-address [userId]="userId"></app-account-address>
             </div>
         </div>
     </div>

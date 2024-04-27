@@ -1,11 +1,13 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
 import { EditAddressDialogComponent } from '../edit-address-dialog/edit-address-dialog.component';
+import { AddressService } from 'src/app/services/address.service';
+import { TokenService } from 'src/app/services/token.service';
 
 export interface DialogData {
   id: number;
-  fullname: string;
+  fullName: string;
   houseNumber: string;
   street: string;
   city: string;
@@ -23,10 +25,13 @@ export interface DialogData {
   styleUrls: ['./shipping-address-dialog.component.scss']
 })
 export class ShippingAddressDialogComponent implements OnInit {
+  userId: number = 1;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData[], public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private addressService: AddressService, private zone: NgZone, private tokenService: TokenService) { }
 
-  selectedAddress: number = this.data.find((address) => address.isDefault === true)?.id || this.data[0].id;
+  selectedAddressId: number = 0;
+
+  addresses: any = [];
 
   openAddAddressDialog() {
 
@@ -35,26 +40,42 @@ export class ShippingAddressDialogComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log(result);
-      }
+      this.addressService.getAddressesByUserId(this.userId).subscribe((data) => {
+        this.addresses = data;
+      });
     });
   }
 
-  openEditAddressDialog() {
+  handleAddressRemove(addressId: number) {
+    this.addressService.deleteAddress(addressId).subscribe(() => {
+      this.addressService.getAddressesByUserId(this.userId).subscribe((data) => {
+        this.addresses = data;
+      });
+    });
+  }
+
+  openEditAddressDialog(addressId: number) {
 
     const dialogRef = this.dialog.open(EditAddressDialogComponent, {
-      data: null
+      data: addressId
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log(result);
-      }
+      this.addressService.getAddressesByUserId(this.userId).subscribe((data) => {
+        this.addresses = data;
+      });
     });
   }
 
   ngOnInit(): void {
+    const id = this.tokenService.getTokenData()?.id;
+    if (id) {
+      this.userId = parseInt(id);
+    }
+    this.addressService.getAddressesByUserId(this.userId).subscribe((data) => {
+      this.selectedAddressId = data.find((address: any) => address.isDefault === true)?.id || data[0].id;
+      this.addresses = data;
+    });
   }
 
 }

@@ -5,6 +5,6 @@
     </div>
 
     <div class="cards-wrapper">
-        <app-address-card *ngFor="let address of addressList" [address]="address" [default]="address.isDefault" (handleAddressRemoveEvent)="handleAddressRemove($event)"></app-address-card>
+        <app-address-card *ngFor="let address of addressList" [userId]="userId" [address]="address" [default]="address.isDefault" (handleAddressRemoveEvent)="handleAddressRemove($event)"></app-address-card>
     </div>
 </div>

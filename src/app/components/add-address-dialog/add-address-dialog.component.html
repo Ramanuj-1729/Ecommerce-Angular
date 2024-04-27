@@ -1,54 +1,82 @@
 <h2>Add New Address</h2>
 
-<form>
+<form name="form">
     <mat-form-field style="width: 100%" name="form" appearance="fill">
         <mat-label>Full Name</mat-label>
-        <input type="text" name="fullName" placeholder="Ex. abcd xyz" matInput>
+        <input type="text" name="fullName" placeholder="Ex. abcd xyz" matInput [formControl]="fullNameFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.fullName">
+
+        <mat-error *ngIf="fullNameFormControl.hasError('required')">
+            Full Name is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field style="width: 100%" appearance="fill">
         <mat-label>Phone Number</mat-label>
-        <input type="text" name="phoneNumber" matInput placeholder="Ex. +91 0123456789">
+        <input type="text" name="phoneNumber" matInput placeholder="Ex. +91 0123456789" [formControl]="phoneNumberFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.phoneNumber">
+
+        <mat-error *ngIf="phoneNumberFormControl.hasError('required')">
+            Phone Number is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <div style="width: 100%" class="flex align-center">
         <mat-form-field style="margin-right: 1rem" appearance="fill">
             <mat-label>Pin Code</mat-label>
-            <input type="text" name="zip" matInput placeholder="Ex. 471001">
+            <input type="text" name="zip" matInput placeholder="Ex. 471001" [formControl]="zipFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.zip" >
+
+            <mat-error *ngIf="zipFormControl.hasError('required')">
+                Pin Code is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>House No.</mat-label>
-            <input type="text" name="houseNumber" matInput placeholder="Ex. 142">
+            <input type="text" name="houseNumber" matInput placeholder="Ex. 142" [formControl]="houseNumberFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.houseNumber">
+
+            <mat-error *ngIf="houseNumberFormControl.hasError('required')">
+                House Number is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
     </div>
 
     <div style="width: 100%" class="flex align-center">
         <mat-form-field style="margin-right: 1rem" appearance="fill">
             <mat-label>Street</mat-label>
-            <input type="text" name="street" matInput placeholder="Ex. Trasnport Nagar">
+            <input type="text" name="street" matInput placeholder="Ex. Trasnport Nagar"  [formControl]="streetFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.street" >
+
+            <mat-error *ngIf="streetFormControl.hasError('required')">
+                Street name is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>City</mat-label>
-            <input type="text" name="city" matInput placeholder="Ex. Chhatarpur">
+            <input type="text" name="city" matInput placeholder="Ex. Chhatarpur"  [formControl]="cityFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.city" >
+
+            <mat-error *ngIf="cityFormControl.hasError('required')">
+                City name is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
     </div>
 
     <div style="width: 100%" class="flex align-center">
         <mat-form-field style="margin-right: 1rem" appearance="fill">
             <mat-label>State</mat-label>
-            <input type="text" name="state" matInput placeholder="Ex. Madhya Pradesh">
+            <input type="text" name="state" matInput placeholder="Ex. Madhya Pradesh"  [formControl]="stateFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.state" >
+
+            <mat-error *ngIf="stateFormControl.hasError('required')">
+                State name is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Country</mat-label>
-            <input type="text" name="country" matInput placeholder="Ex. India">
+            <input type="text" name="country" matInput placeholder="Ex. India"  [formControl]="countryFormControl" [errorStateMatcher]="matcher" [(ngModel)]="addAddressFormValue.country" >
         </mat-form-field>
     </div>
 
     <div>
-        <mat-radio-group style="width: 100%" [(ngModel)]="seletedAddressType">
+        <mat-radio-group name="addressType" style="width: 100%" [(ngModel)]="addressType">
             <mat-label style="margin-right: 1rem;">Address Type:</mat-label>
             <mat-radio-button style="margin-right: 1rem; margin-bottom: 1rem;" *ngFor="let address of addressTypes"
                 [value]="address">
@@ -57,10 +85,10 @@
         </mat-radio-group>
     </div>
 
-    <mat-checkbox>Make This My Default Address</mat-checkbox>
+    <mat-checkbox (change)="setDefaultAddress($event)">Make This My Default Address</mat-checkbox>
 
     <div style="margin-top: 1.5rem;" class="flex justify-center">
-        <button mat-flat-button mat-dialog-close>Close</button>
-        <button mat-flat-button color="primary">Save Address</button>
+        <button type="reset" mat-flat-button mat-dialog-close>Close</button>
+        <button type="submit" mat-flat-button color="primary" (click)="onAddAddressFormSubmit()">Save Address</button>
     </div>
 </form>

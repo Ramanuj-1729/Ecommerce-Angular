@@ -16,6 +16,10 @@ export class AddressService {
     return this.http.post(this.address_url, address);
   }
 
+  getAddressById(addressId: number): Observable<any> {
+    return this.http.get(this.address_url + "/" + addressId);
+  }
+
   getAddressesByUserId(userId: number): Observable<any> {
     return this.http.get(this.address_url + "/" + userId);
   }

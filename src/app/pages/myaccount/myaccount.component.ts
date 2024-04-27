@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,9 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MyaccountComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute) { }
 
   selectedTab = 'dashboard';
+  userId: number = 1;
 
   changeTab(tab: string) {
     this.selectedTab = tab;
@@ -25,6 +26,10 @@ export class MyaccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.userId = +params['id'];
+      
+    });
   }
 
 }

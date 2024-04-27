@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-account-orders',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-orders.component.scss']
 })
 export class AccountOrdersComponent implements OnInit {
+  @Input() userId: number = 1;
 
   constructor() { }
 

@@ -7,16 +7,17 @@
     </div>
     <div>
         <div>
-            <mat-radio-group class="example-radio-group" [(ngModel)]="selectedAddress">
-                <mat-radio-button class="example-radio-button" *ngFor="let address of data" [value]="address.id">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="selectedAddressId">
+                <mat-radio-button class="example-radio-button" *ngFor="let address of addresses" [value]="address.id">
                     <div>
-                        <h4>{{address.fullname}}</h4>
-                        <p>{{address.street}}</p>
-                        <p>{{address.city}}, {{address.state}}, {{address.country}}</p>
+                        <h4>{{address.fullName}}</h4>
+                        <p>{{address.houseNumber}}, {{address.street}}, {{address.city}}</p>
+                        <p>{{address.state}} - {{address.zip}}</p>
+                        <p>{{address.country}}</p>
                         <p>Mobile: {{address.phoneNumber}}</p>
                         <span>
-                            <button (click)="openEditAddressDialog()" mat-flat-button>Edit</button>
-                            <button mat-flat-button>Remove</button>
+                            <button (click)="openEditAddressDialog(address.id)" mat-flat-button>Edit</button>
+                            <button (click)="handleAddressRemove(address.id)" mat-flat-button>Remove</button>
                         </span>
                     </div>
                 </mat-radio-button>
@@ -24,7 +25,7 @@
         </div>
         <mat-dialog-actions align="end">
             <button mat-button mat-dialog-close>Cancel</button>
-            <button mat-button [mat-dialog-close]="selectedAddress">Select Shipping Address</button>
+            <button mat-button [mat-dialog-close]="selectedAddressId">Select Shipping Address</button>
         </mat-dialog-actions>
     </div>
 </div>

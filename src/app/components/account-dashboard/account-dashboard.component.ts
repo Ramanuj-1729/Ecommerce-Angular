@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-account-dashboard',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./account-dashboard.component.scss']
 })
 export class AccountDashboardComponent implements OnInit {
+  @Input() userId: number = 1;
 
-  constructor() { }
+  userData: any;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUserById(this.userId).subscribe((data: any) => {
+      this.userData = data;
+    },
+      (error: any) => {
+        console.log(error);
+      });
   }
 
 }

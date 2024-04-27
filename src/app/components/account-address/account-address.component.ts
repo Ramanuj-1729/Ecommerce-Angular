@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, NgZone, OnInit } from '@angular/core';
 import { AddressService } from 'src/app/services/address.service';
 import { AddAddressDialogComponent } from '../add-address-dialog/add-address-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Address } from 'src/app/interfaces/address';
 
 @Component({
   selector: 'app-account-address',
@@ -9,10 +10,11 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./account-address.component.scss']
 })
 export class AccountAddressComponent implements OnInit {
+  @Input() userId: number = 1;
 
   constructor(private addressService: AddressService, public dialog: MatDialog) { }
 
-  addressList: any = [];
+  addressList: Address[] = [];
 
   openDialog() {
 
@@ -21,9 +23,9 @@ export class AccountAddressComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log(result);
-      }
+      this.addressService.getAddressesByUserId(this.userId).subscribe((data: Address[]) => {
+        this.addressList = data;
+      });
     });
   }
 
@@ -35,7 +37,7 @@ export class AccountAddressComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addressService.getAddressesByUserId(1).subscribe((res) => {
+    this.addressService.getAddressesByUserId(this.userId).subscribe((res) => {
       this.addressList = res;
     });
   }

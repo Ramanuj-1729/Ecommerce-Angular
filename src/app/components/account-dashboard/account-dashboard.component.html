@@ -15,12 +15,12 @@
         </div>
 
         <div class="dashboard-value-wrapper flex flex-column">
-            <span class="data-value">ramanuj1729</span>
-            <span class="data-value">ramanuj asati</span>
-            <span class="data-value">ramanu@gmail.com</span>
-            <span class="data-value">+91 9179272636</span>
-            <span class="data-value">22</span>
-            <span class="data-value">Male</span>
+            <span class="data-value">{{userData.userName}}</span>
+            <span class="data-value">{{userData.fullName}}</span>
+            <span class="data-value">{{userData.email}}</span>
+            <span class="data-value">+91 {{userData.phoneNumber}}</span>
+            <span class="data-value">{{userData.age}}</span>
+            <span class="data-value">{{userData.gender == 'M' ? 'Male' : 'Female'}}</span>
         </div>
     </div>
 </div>

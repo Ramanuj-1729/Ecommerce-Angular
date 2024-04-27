@@ -12,12 +12,12 @@
                 <ng-template matStepLabel>Shipping</ng-template>
                 <div>
                     <div>
-                        <button (click)="openDialog()">Select Shipping Address</button>
-                        <button (click)="openAddAddressDialog()">Add New Address</button>
+                        <button *ngIf="selectedAddress" (click)="openShippingAddressDialog()">Select Shipping Address</button>
+                        <button *ngIf="!selectedAddress" (click)="openAddAddressDialog()">Add New Address</button>
                     </div>
-                    <div>
+                    <div *ngIf="selectedAddress">
                         <h4>Shipping Address</h4>
-                        <h3>{{selectedAddress.fullname}}</h3>
+                        <h3>{{selectedAddress.fullName}}</h3>
                         <span>{{selectedAddress.addressType}}</span>
                         <p>{{selectedAddress.houseNumber}}, {{selectedAddress.street}}, {{selectedAddress.city}}</p>
                         <p>{{selectedAddress.state}} - {{selectedAddress.zip}}</p>
@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <button matStepperPrevious>Back</button>
-                    <button matStepperNext (click)="confirmAddress()">Confirm Shipping Address</button>
+                    <button *ngIf="selectedAddress" matStepperNext (click)="confirmAddress()">Confirm Shipping Address</button>
                 </div>
             </form>
         </mat-step>
