@@ -55,6 +55,7 @@ import { AddressCardComponent } from './components/address-card/address-card.com
 import { ShippingAddressDialogComponent } from './components/shipping-address-dialog/shipping-address-dialog.component';
 import { AddAddressDialogComponent } from './components/add-address-dialog/add-address-dialog.component';
 import { EditAddressDialogComponent } from './components/edit-address-dialog/edit-address-dialog.component';
+import { OrderSuccessComponent } from './pages/order-success/order-success.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { EditAddressDialogComponent } from './components/edit-address-dialog/edi
     AddressCardComponent,
     ShippingAddressDialogComponent,
     AddAddressDialogComponent,
-    EditAddressDialogComponent
+    EditAddressDialogComponent,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,

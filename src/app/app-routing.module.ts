@@ -12,6 +12,7 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AuthGuard } from './guards/auth.guard';
+import { OrderSuccessComponent } from './pages/order-success/order-success.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/home", pathMatch: "full" },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'wishlist', component: WishlistComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'order-success', component: OrderSuccessComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

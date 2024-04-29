@@ -55,9 +55,10 @@
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>Action</th>
-            <td mat-cell *matCellDef="let element"><mat-icon (click)="deleteProductFromCart(element.productId)" class="cart-remove-btn">{{element.action}}</mat-icon></td>
+            <td mat-cell *matCellDef="let element"><mat-icon (click)="deleteProductFromCart(element.productId)"
+                    class="cart-remove-btn">{{element.action}}</mat-icon></td>
             <td mat-footer-cell *matFooterCellDef>
-                <button class="cart-btn" mat-flat-button color="warn">Checkout</button>
+                <a routerLink="/checkout" class="cart-btn" mat-flat-button color="warn">Checkout</a>
             </td>
         </ng-container>
 

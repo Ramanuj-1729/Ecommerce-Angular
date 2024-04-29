@@ -36,7 +36,7 @@
             <p>order summary</p>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button (click)="orderSummaryCompleted()" mat-button matStepperNext>Next</button>
             </div>
         </mat-step>
         <mat-step>

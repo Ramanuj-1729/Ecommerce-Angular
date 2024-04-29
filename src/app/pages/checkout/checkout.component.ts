@@ -7,6 +7,7 @@ import { AddAddressDialogComponent } from 'src/app/components/add-address-dialog
 import { AddressService } from 'src/app/services/address.service';
 import { Address } from 'src/app/interfaces/address';
 import { TokenService } from 'src/app/services/token.service';
+import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
   selector: 'app-checkout',
@@ -18,7 +19,7 @@ export class CheckoutComponent implements OnInit {
 
   @ViewChild('stepper') stepper!: MatStepper;
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef, public dialog: MatDialog, private addressService: AddressService, private tokenService: TokenService) { }
+  constructor(private router: Router, private cdr: ChangeDetectorRef, public dialog: MatDialog, private addressService: AddressService, private tokenService: TokenService, private paymentService: PaymentService) { }
 
   isAddressCompleted = false;
   isOrderSummaryCompleted = false;
@@ -34,6 +35,23 @@ export class CheckoutComponent implements OnInit {
     this.cdr.detectChanges();
     this.stepper.next();
   }
+
+  orderSummaryCompleted() {
+    this.isOrderSummaryCompleted = true;
+    this.cdr.detectChanges();
+    this.stepper.next();
+
+    this.paymentService.postPayment().subscribe((data: any) => {
+      if (data) {
+        window.location.href = data.session.url;
+        console.log(data.session);
+      }
+    },
+      (error) => {
+        console.log(error);
+      });
+  }
+
   selectedAddress: any = {};
 
   openShippingAddressDialog() {
@@ -77,7 +95,7 @@ export class CheckoutComponent implements OnInit {
     this.addressService.getAddressesByUserId(this.userId).subscribe((data: Address[]) => {
       this.selectedAddress = data.find((address: Address) => address.isDefault === true) || data[0];
     });
-    
+
   }
 
 }
